@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Leagues.Views.LeaguesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource NavBar}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshButtonCommand}" IconImageSource="ic_refresh.png" />
+    </ContentPage.ToolbarItems>
+    <StackLayout Orientation="Vertical" Style="{StaticResource StackLaouytStyle}">
+        <StackLayout IsVisible="{Binding LayLogin}" VerticalOptions="CenterAndExpand">
+
+            <StackLayout
+                x:Name="layAberto"
+                Padding="20,0,20,0"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <!--<Image x:Name="imgAberto" IsVisible="False" Aspect="AspectFit" />-->
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    Text="Atenção"
+                    TextColor="White" />
+                <Label
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    Text="Faça login para visualizar as informações das ligas."
+                    TextColor="White" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    Text="Click no botão abaixo"
+                    TextColor="White" />
+
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LoginCommand}" />
+                </StackLayout.GestureRecognizers>
+                <ffimageloading:CachedImage
+                    HeightRequest="80"
+                    HorizontalOptions="CenterAndExpand"
+                    Source="ic_login.png"
+                    VerticalOptions="StartAndExpand"
+                    WidthRequest="80" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Title"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Logar"
+                    TextColor="White"
+                    VerticalOptions="StartAndExpand" />
+            </StackLayout>
+
+            <adMob:AdMobView HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+        <StackLayout IsVisible="{Binding LayList}" VerticalOptions="CenterAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ListView
+                    x:Name="ListTimes"
+                    Grid.Row="0"
+                    BackgroundColor="#eaeaea"
+                    HasUnevenRows="true"
+                    IsPullToRefreshEnabled="True"
+                    IsRefreshing="{Binding IsRefreshing}"
+                    IsVisible="True"
+                    ItemsSource="{Binding Leagues}"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    SelectedItem="{Binding LeagueSelected, Mode=TwoWay}"
+                    Style="{StaticResource ListViewStyle}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" Style="{StaticResource ListViewStackLaouytStyle}">
+                                    <Grid BackgroundColor="#697a82" HeightRequest="5" />
+                                    <StackLayout
+                                        Padding="2,4,4,2"
+                                        Orientation="Horizontal"
+                                        Style="{StaticResource ListViewStackLaouytStyle}">
+                                        <ffimageloading:CachedImage
+                                            HeightRequest="40"
+                                            Source="{Binding url_flamula_png}"
+                                            WidthRequest="40" />
+                                        <StackLayout
+                                            HorizontalOptions="StartAndExpand"
+                                            Style="{StaticResource ListViewStackLaouytStyle}"
+                                            VerticalOptions="CenterAndExpand"
+                                            WidthRequest="200">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="Micro"
+                                                    Text="{Binding type_league}"
+                                                    TextColor="Gray" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="Micro"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Text="{Binding My}"
+                                                    TextColor="#b55b49" />
+                                            </StackLayout>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                Text="{Binding nome}"
+                                                TextColor="White">
+                                                <Label.FontSize>
+                                                    <OnPlatform
+                                                        x:TypeArguments="x:Double"
+                                                        Android="12"
+                                                        iOS="10" />
+                                                </Label.FontSize>
+                                            </Label>
+                                            <Label Text="{Binding descricao}" TextColor="#989b9e">
+                                                <Label.FontSize>
+                                                    <OnPlatform
+                                                        x:TypeArguments="x:Double"
+                                                        Android="10"
+                                                        iOS="8" />
+                                                </Label.FontSize>
+                                            </Label>
+                                        </StackLayout>
+                                        <!--<Label Text="P" FontAttributes="Bold" TextColor="Orange" FontSize="Large" VerticalTextAlignment="Center" />-->
+                                        <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                Text="{Binding total_times_liga}"
+                                                TextColor="White"
+                                                VerticalOptions="CenterAndExpand">
+                                                <Label.FontSize>
+                                                    <OnPlatform
+                                                        x:TypeArguments="x:Double"
+                                                        Android="11"
+                                                        iOS="8" />
+                                                </Label.FontSize>
+                                            </Label>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                Text="Times"
+                                                TextColor="White"
+                                                VerticalOptions="CenterAndExpand">
+                                                <Label.FontSize>
+                                                    <OnPlatform
+                                                        x:TypeArguments="x:Double"
+                                                        Android="11"
+                                                        iOS="9" />
+                                                </Label.FontSize>
+                                            </Label>
+
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <adMob:AdMobView Grid.Row="1" HorizontalOptions="FillAndExpand" />
+
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

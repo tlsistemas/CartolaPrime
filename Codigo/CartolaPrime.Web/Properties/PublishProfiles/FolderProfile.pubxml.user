@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\Projetos\TMSolutions\CartolaPrimeMVVM\CartolaPrime\CartolaPrime.Web\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2021-08-01T19:54:23.8624753Z;True|2021-07-10T18:47:16.1040019-03:00;True|2021-07-10T18:41:35.3220440-03:00;False|2021-07-10T18:39:48.5103313-03:00;False|2021-07-10T18:39:22.1335596-03:00;</History>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Home.Views.HomeCAView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:models="clr-namespace:CartoPrime.Models"
+    xmlns:viewModels="clr-namespace:CartoPrime.Modules.Home.ViewModel"
+    Title="Home"
+    x:DataType="viewModels:HomeCAViewModel"
+    BackgroundColor="#2a2f32">
+    <Grid
+        Padding="16,0,16,0"
+        BackgroundColor="Transparent"
+        ColumnDefinitions="*,*,*"
+        RowDefinitions="2*, 7*,1*"
+        Style="{StaticResource BaseStyleGrid}"
+        VerticalOptions="StartAndExpand">
+
+        <StackLayout
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Margin="15"
+            BackgroundColor="Transparent"
+            Orientation="Horizontal">
+            <StackLayout>
+                <circle:CircleImage
+                    x:Name="imageTeam"
+                    Aspect="AspectFit"
+                    HeightRequest="70"
+                    Source="loginca.png"
+                    VerticalOptions="StartAndExpand" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="Login"
+                    TextColor="White" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label
+                    x:Name="txtHome1"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="Bem vindo"
+                    TextColor="White" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="Thi-Cartolando FC"
+                    TextColor="White" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="12"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="Mercado Aberto"
+                    TextColor="White" />
+            </StackLayout>
+        </StackLayout>
+
+        <CollectionView
+            x:Name="tiles"
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            Margin="0,8,0,0"
+            ItemSizingStrategy="MeasureFirstItem"
+            ItemsSource="{Binding Tiles}"
+            SelectionMode="None"
+            VerticalOptions="FillAndExpand">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    HorizontalItemSpacing="0"
+                    Orientation="Vertical"
+                    Span="3"
+                    VerticalItemSpacing="8" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Tile">
+                    <ScrollView VerticalOptions="FillAndExpand">
+
+                        <Frame
+                            Margin="0"
+                            Padding="6"
+                            BackgroundColor="Transparent"
+                            HeightRequest="90"
+                            Scale="{Binding Scale}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding BindingContext.SelectedTileCommand, Source={x:Reference Name=tiles}}"
+                                    CommandParameter="{Binding .}"
+                                    NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+
+                            <Frame
+                                Margin="0,-4"
+                                Padding="12,8"
+                                BackgroundColor="{Binding ColorTile}"
+                                BorderColor="{Binding ColorBorder}"
+                                CornerRadius="10"
+                                WidthRequest="130">
+                                <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*">
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="CenterAndExpand">
+                                        <Label
+                                            Padding="0"
+                                            FontSize="24"
+                                            HorizontalOptions="CenterAndExpand"
+                                            IsVisible="{Binding FAVisible}"
+                                            Style="{StaticResource FAS}"
+                                            Text="{Binding CodeFA}"
+                                            TextColor="{Binding ColorText}" />
+
+                                        <circle:CircleImage
+                                            Aspect="AspectFit"
+                                            BackgroundColor="Transparent"
+                                            BorderThickness="0"
+                                            HeightRequest="60"
+                                            HorizontalOptions="CenterAndExpand"
+                                            IsVisible="{Binding CircleImageVisible}"
+                                            Source="{Binding CircleImage}"
+                                            WidthRequest="60" />
+
+                                        <ffimageloading:CachedImage
+                                            Aspect="AspectFit"
+                                            BackgroundColor="Transparent"
+                                            HeightRequest="60"
+                                            HorizontalOptions="End"
+                                            IsVisible="{Binding ImageVisible}"
+                                            Source="{Binding Image}"
+                                            WidthRequest="60" />
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Vertical"
+                                        Spacing="2"
+                                        VerticalOptions="EndAndExpand">
+                                        <Label
+                                            FontSize="{StaticResource Size.Home.ExpressaoCentral}"
+                                            Style="{StaticResource FontFamilyUbuntuBold}"
+                                            Text="{Binding Titulo}"
+                                            TextColor="{Binding ColorText}"
+                                            TextType="Html"
+                                            VerticalOptions="CenterAndExpand"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            FontSize="{StaticResource Size.Home.ExpressaoCentral}"
+                                            IsVisible="{Binding SubExpressaoCentralVisible}"
+                                            Opacity="0.9"
+                                            Style="{StaticResource FontFamilyUbuntu}"
+                                            Text="{Binding SubExpressaoCentral}"
+                                            TextColor="{Binding ColorText}"
+                                            TextType="Html"
+                                            VerticalOptions="EndAndExpand"
+                                            VerticalTextAlignment="End" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+
+                    </ScrollView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <adMob:AdMobView
+            x:Name="LayAdView"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalOptions="FillAndExpand" />
+    </Grid>
+</ContentPage>

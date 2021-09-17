@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="CartoPrime.Modules.Base.LoadingView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <Frame
+        BackgroundColor="#22323b"
+        CornerRadius="10"
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand">
+        <StackLayout>
+
+            <Label
+                x:Name="lblMessage"
+                Margin="5"
+                FontSize="Large"
+                HorizontalOptions="FillAndExpand"
+                TextColor="White" />
+
+            <lottie:AnimationView
+                Animation="soccer-player.json"
+                AutoPlay="True"
+                HeightRequest="110"
+                HorizontalOptions="Center"
+                Scale="1"
+                VerticalOptions="Center"
+                WidthRequest="110" />
+
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

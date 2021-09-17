@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="CartoPrime.Modules.Home.Views.PartnerPopUpView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:rg="http://rotorgames.com"
+    HasSystemPadding="False">
+    <rg:PopupPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#9cdaf1" />
+                <Setter Property="TextColor" Value="#7dbbe6" />
+            </Style>
+        </ResourceDictionary>
+    </rg:PopupPage.Resources>
+    <rg:PopupPage.Animation>
+        <rg:ScaleAnimation
+            DurationIn="700"
+            EasingIn="BounceOut"
+            PositionIn="Bottom"
+            PositionOut="Center"
+            ScaleIn="1"
+            ScaleOut="0.7" />
+    </rg:PopupPage.Animation>
+    <ScrollView
+        Margin="20"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <AbsoluteLayout>
+            <Frame x:Name="FrameContainer" CornerRadius="20">
+                <StackLayout>
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="Planos de Sócios"
+                        TextColor="Black" />
+
+                    <Grid HeightRequest="250" WidthRequest="250">
+                        <Frame
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            BackgroundColor="Transparent"
+                            HeightRequest="20">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    CommandParameter="1"
+                                    NumberOfTapsRequired="1"
+                                    Tapped="TapPlano" />
+                            </Frame.GestureRecognizers>
+
+                            <Frame
+                                Margin="0,-8"
+                                Padding="0,2,0,0"
+                                CornerRadius="10">
+                                <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*">
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="CenterAndExpand">
+
+                                        <circle:CircleImage
+                                            Aspect="AspectFit"
+                                            BackgroundColor="Transparent"
+                                            BorderThickness="0"
+                                            HeightRequest="60"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Source="seja_socio.png"
+                                            WidthRequest="60" />
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Vertical"
+                                        VerticalOptions="EndAndExpand">
+                                        <Label
+                                            FontSize="Micro"
+                                            HorizontalOptions="CenterAndExpand"
+                                            HorizontalTextAlignment="Center"
+                                            Style="{StaticResource FontFamilyUbuntuBold}"
+                                            TextColor="Black"
+                                            TextType="Text"
+                                            VerticalOptions="CenterAndExpand"
+                                            VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="PLANO DE SÓCIO&#10;" />
+                                                        <Span Text="TOP 3 ANUAL" />
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+
+                        <Frame
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BackgroundColor="Transparent"
+                            HeightRequest="90">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    CommandParameter="2"
+                                    NumberOfTapsRequired="1"
+                                    Tapped="TapPlano" />
+                            </Frame.GestureRecognizers>
+
+                            <Frame
+                                Margin="0,-8"
+                                Padding="0,2,0,0"
+                                CornerRadius="10">
+                                <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*">
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="CenterAndExpand">
+
+                                        <circle:CircleImage
+                                            Aspect="AspectFit"
+                                            BackgroundColor="Transparent"
+                                            BorderThickness="0"
+                                            HeightRequest="60"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Source="seja_socio.png"
+                                            WidthRequest="60" />
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Vertical"
+                                        Spacing="2"
+                                        VerticalOptions="EndAndExpand">
+                                        <Label
+                                            FontSize="Micro"
+                                            HorizontalOptions="CenterAndExpand"
+                                            HorizontalTextAlignment="Center"
+                                            Style="{StaticResource FontFamilyUbuntuBold}"
+                                            TextColor="Black"
+                                            TextType="Html"
+                                            VerticalOptions="CenterAndExpand"
+                                            VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="PLANO DE SÓCIO&#10;" />
+                                                        <Span Text="TOP 3 1° TURNO" />
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+
+
+                        <Frame
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            BackgroundColor="Transparent"
+                            HeightRequest="90">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    CommandParameter="3"
+                                    NumberOfTapsRequired="1"
+                                    Tapped="TapPlano" />
+                            </Frame.GestureRecognizers>
+
+                            <Frame
+                                Margin="0,-8"
+                                Padding="0,2,0,0"
+                                CornerRadius="10">
+                                <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*">
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="CenterAndExpand">
+
+                                        <circle:CircleImage
+                                            Aspect="AspectFit"
+                                            BackgroundColor="Transparent"
+                                            BorderThickness="0"
+                                            HeightRequest="60"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Source="seja_socio.png"
+                                            WidthRequest="60" />
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Vertical"
+                                        Spacing="2"
+                                        VerticalOptions="EndAndExpand">
+                                        <Label
+                                            FontSize="Micro"
+                                            HorizontalOptions="CenterAndExpand"
+                                            HorizontalTextAlignment="Center"
+                                            Style="{StaticResource FontFamilyUbuntuBold}"
+                                            TextColor="Black"
+                                            TextType="Html"
+                                            VerticalOptions="CenterAndExpand"
+                                            VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="PLANO DE SÓCIO&#10;" />
+                                                        <Span Text="TOP 3 2° TURNO" />
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <ContentView AbsoluteLayout.LayoutBounds="1, 0, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </ContentView.GestureRecognizers>
+                <ffimageloading:CachedImage
+                    x:Name="CloseImage"
+                    HeightRequest="30"
+                    WidthRequest="30">
+                    <ffimageloading:CachedImage.Source>
+                        <OnPlatform
+                            x:TypeArguments="ImageSource"
+                            Android="close_circle_button.png"
+                            WinPhone="Assets/close_circle_button.png"
+                            iOS="close_circle_button.png" />
+                    </ffimageloading:CachedImage.Source>
+                </ffimageloading:CachedImage>
+            </ContentView>
+        </AbsoluteLayout>
+    </ScrollView>
+</pages:PopupPage>

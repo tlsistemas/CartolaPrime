@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="CartoPrime.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:styles="clr-namespace:CartoPrime.Custom.Styles;assembly=CartoPrime">
+    <Application.Resources>
+        <Color x:Key="NavBar">
+            #2d3134
+        </Color>
+        <Color x:Key="BrancoFumaca">
+            #e1e1e1
+        </Color>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <styles:Colors />
+                <styles:Converters />
+                <styles:Fonts />
+                <styles:Buttons />
+                <styles:Sizes />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="BaseStyleGrid" TargetType="Grid">
+                <Setter Property="ColumnDefinitions" Value="*,*,*,*" />
+                <Setter Property="Padding" Value="16,48" />
+                <Setter Property="ColumnSpacing" Value="16" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style
+                x:Key="ListViewStyle"
+                BaseResourceKey="BodyStyle"
+                TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="#131c21" />
+            </Style>
+            <Style
+                x:Key="ListViewStackLaouytStyle"
+                BaseResourceKey="BodyStyle"
+                TargetType="ListView">
+                <Setter Property="BackgroundColor" Value="#22323b" />
+            </Style>
+            <Style
+                x:Key="StackLaouytStyle"
+                BaseResourceKey="BodyStyle"
+                TargetType="ListView">
+                <Setter Property="BackgroundColor" Value="#131c21" />
+            </Style>
+            <Style
+                x:Key="HeaderStyle"
+                BaseResourceKey="BodyStyle"
+                TargetType="ListView">
+                <Setter Property="BackgroundColor" Value="#2a2f32" />
+            </Style>
+            <Style x:Key="FontFamilyUbuntu" TargetType="Label">
+                <Setter Property="FontFamily" Value="Ubuntu-Regular.ttf#Ubuntu-Regular" />
+            </Style>
+
+            <Style x:Key="FontFamilyUbuntuBold" TargetType="Label">
+                <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+            </Style>
+
+
+            <Style x:Key="FAS" TargetType="Label">
+                <Setter Property="FontFamily" Value="fa-solid-900.ttf#Font Awesome 5 Free Solid" />
+            </Style>
+
+
+            <Style x:Key="FA" TargetType="Label">
+                <Setter Property="FontFamily" Value="fa-regular-400.ttf#Font Awesome 5 Free Regular" />
+            </Style>
+
+
+
+            <Style x:Key="FAB" TargetType="Label">
+                <Setter Property="FontFamily" Value="fa-brands-400.ttf#Font Awesome 5 Free Brands Regular" />
+            </Style>
+
+            <Style x:Key="BrandsFA" TargetType="Label">
+                <Setter Property="FontFamily" Value="FontAwesomeBrands" />
+            </Style>
+
+            <Style x:Key="FASolid" TargetType="Label">
+                <Setter Property="FontFamily" Value="FontAwesomeSolid" />
+            </Style>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

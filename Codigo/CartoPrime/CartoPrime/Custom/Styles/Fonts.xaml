@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ResourceDictionary
+    x:Class="CartoPrime.Custom.Styles.Fonts"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style x:Key="FontFamilyUbuntu" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Regular.ttf#Ubuntu-Regular" />
+    </Style>
+
+    <Style x:Key="FontFamilyRift" TargetType="Label">
+        <Setter Property="FontFamily" Value="Rift-Regular.otf#Rift-Regular" />
+    </Style>
+
+    <Style x:Key="FontFamilyRiftBold" TargetType="Label">
+        <Setter Property="FontFamily" Value="Rift-Bold.otf#Rift-Bold" />
+    </Style>
+
+    <Style x:Key="FontFamilyUbuntuBold" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+    </Style>
+
+    <Style x:Key="FontFamilyUbuntuMed" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Medium.ttf#Ubuntu-Medium" />
+    </Style>
+
+    <Style x:Key="FontFamilyUbuntuLight" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Light.ttf#Ubuntu-Light" />
+    </Style>
+
+    <!--  Estilos telas onboarding App - Tema escuro  -->
+
+    <Style
+        x:Key="TitulosBrancoOnboarding"
+        BasedOn="{StaticResource FontFamilyRiftBold}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="36" />
+        <Setter Property="TextColor" Value="#FFFF" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalOptions" Value="StartAndExpand" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+    </Style>
+
+    <Style
+        x:Key="TextoBrancoInputLabelLigth"
+        BasedOn="{StaticResource FontFamilyUbuntuLight}"
+        TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="#FFFF" />
+    </Style>
+
+    <Style
+        x:Key="TextoBrancoInputLabelUbuntuBold"
+        BasedOn="{StaticResource FontFamilyUbuntuBold}"
+        TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="#FFFF" />
+    </Style>
+
+    <Style
+        x:Key="TextoBrancoInputLabelMedium"
+        BasedOn="{StaticResource FontFamilyUbuntuMed}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="#FFFF" />
+    </Style>
+
+    <Style x:Key="TextoBrancoCorpoOnboardingReg" TargetType="Label">
+        <Setter Property="FontFamily" Value="Acumin-RPro.otf#Acumin-RPro" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="#FFFF" />
+    </Style>
+
+    <Style
+        x:Key="TextoBrancoInputLabel"
+        BasedOn="{StaticResource FontFamilyUbuntu}"
+        TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="#FFFF" />
+    </Style>
+
+    <!--  Estilos para telas de onboarding App - Atual  -->
+
+    <Style
+        x:Key="TitulosOnboarding"
+        BasedOn="{StaticResource FontFamilyRiftBold}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="36" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalOptions" Value="StartAndExpand" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+    </Style>
+
+    <Style
+        x:Key="TextoCentroOnboardingReg"
+        BasedOn="{StaticResource FontFamilyUbuntu}"
+        TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
+    </Style>
+
+    <Style
+        x:Key="TextoCentroOnboardingBold"
+        BasedOn="{StaticResource FontFamilyUbuntuBold}"
+        TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="#333" />
+    </Style>
+
+    <Style
+        x:Key="TextoInputLabel"
+        BasedOn="{StaticResource FontFamilyUbuntu}"
+        TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="#333" />
+    </Style>
+
+    <Style
+        x:Key="TextoDadosInvalidos"
+        BasedOn="{StaticResource FontFamilyUbuntu}"
+        TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="#FC440F" />
+    </Style>
+
+    <!--  Estilos para mensagens de aprovação de cadastro  -->
+
+    <Style
+        x:Key="CadastroReprovado"
+        BasedOn="{StaticResource FontFamilyUbuntuBold}"
+        TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="TextColor" Value="#DE3202" />
+    </Style>
+
+    <Style
+        x:Key="CadastroAprovado"
+        BasedOn="{StaticResource FontFamilyUbuntuBold}"
+        TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="TextColor" Value="#008324" />
+    </Style>
+
+    <Style
+        x:Key="NomeUsuarioTelaStatus"
+        BasedOn="{StaticResource FontFamilyUbuntuBold}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="32" />
+        <Setter Property="TextColor" Value="#001C08" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+
+
+
+
+
+
+
+
+
+    <!--  Bora Bora  -->
+
+    <Style x:Key="TituloBoraBora" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#1F1F1F" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style x:Key="TituloBoraBoraCinza" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#474747" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style x:Key="TituloBoraBoraCinzaRoteirizado" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#474747" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+
+    <Style x:Key="TextoCorpoBoraBoraGde" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Regular.ttf#Ubuntu-Regular" />
+        <Setter Property="TextColor" Value="#474747" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="None" />
+    </Style>
+
+    <Style x:Key="TextoCinzaCorpoBoraBoraGde" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#707070" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style x:Key="TextoCorpoBoraBoraGdeBold" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#474747" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="None" />
+    </Style>
+    <Style x:Key="TextoCorpoBoraBoraGdeBoldBco" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#ffffff" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontAttributes" Value="None" />
+    </Style>
+
+    <Style x:Key="TextoCorpoBoraBoraGdeBco" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Regular.ttf#Ubuntu-Regular" />
+        <Setter Property="TextColor" Value="#ffffff" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="None" />
+    </Style>
+
+    <Style x:Key="TextoCorpoBoraBoraMd" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Regular.ttf#Ubuntu-Regular" />
+        <Setter Property="TextColor" Value="#474747" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontAttributes" Value="None" />
+    </Style>
+
+
+
+    <Style x:Key="TextoCorpoBoraBoraMdBold" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#474747" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style x:Key="TextoCorpoBoraBoraMdAtualBold" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#474747" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style x:Key="TextoCorpoBoraBoraMdAtual" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Regular.ttf#Ubuntu-Regular" />
+        <Setter Property="TextColor" Value="#474747" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="None" />
+    </Style>
+
+    <Style x:Key="TextoLink" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#13BA94" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="TextDecorations" Value="Underline" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style x:Key="TextoLinkBco" TargetType="Label">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#ffffff" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextDecorations" Value="Underline" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+
+
+</ResourceDictionary>

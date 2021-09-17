@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Team.Views.InsertTeamsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource NavBar}">
+
+    <Shell.SearchHandler>
+        <SearchHandler
+            x:Name="search"
+            BackgroundColor="{StaticResource NavBar}"
+            Command="{Binding SearchCommand}"
+            Placeholder="Nome do time..."
+            PlaceholderColor="White"
+            Query="{Binding Search}"
+            TextColor="White" />
+
+    </Shell.SearchHandler>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="9*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <adMob:AdMobView
+            x:Name="LayAdView"
+            Grid.Row="0"
+            HorizontalOptions="FillAndExpand" />
+        <StackLayout Grid.Row="1">
+            <ListView
+                CachingStrategy="RecycleElementAndDataTemplate"
+                HasUnevenRows="true"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsRefreshing}"
+                IsVisible="{Binding VisibleList}"
+                ItemsSource="{Binding Teams}"
+                RefreshCommand="{Binding RefreshCommand}"
+                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                Style="{StaticResource ListViewStyle}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell IsEnabled="{Binding item_enable}">
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout BackgroundColor="#697a82" HeightRequest="5" />
+                                <StackLayout
+                                    Padding="10,10,10,10"
+                                    Orientation="Horizontal"
+                                    Style="{StaticResource ListViewStackLaouytStyle}">
+                                    <ffimageloading:CachedImage
+                                        HeightRequest="30"
+                                        Source="{Binding url_escudo_png}"
+                                        WidthRequest="30" />
+                                    <StackLayout HorizontalOptions="StartAndExpand">
+                                        <Label Text="{Binding nome}" TextColor="white" />
+                                        <Label Text="{Binding nome_cartola}" TextColor="white" />
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                        <ffimageloading:CachedImage Aspect="AspectFit" Source="{Binding assinanteCaminho}" />
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                                        <ffimageloading:CachedImage Aspect="AspectFit" Source="{Binding image_add}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

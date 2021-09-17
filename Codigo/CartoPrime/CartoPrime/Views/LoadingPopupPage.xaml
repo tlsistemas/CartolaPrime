@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="CartoPrime.Views.LoadingPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    CloseWhenBackgroundIsClicked="False">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <StackLayout>
+            <ActivityIndicator
+                x:Name="load"
+                HeightRequest="70"
+                HorizontalOptions="Center"
+                IsEnabled="True"
+                IsRunning="True"
+                VerticalOptions="Center"
+                WidthRequest="70"
+                Color="White" />
+        </StackLayout>
+        <StackLayout>
+            <Label
+                FontAttributes="Bold"
+                Text="Aguarde Carregando...."
+                VerticalOptions="Center" />
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

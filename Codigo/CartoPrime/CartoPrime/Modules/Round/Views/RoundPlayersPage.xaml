@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Round.Views.RoundPlayersPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    BackgroundColor="{StaticResource NavBar}">
+    <StackLayout Orientation="Vertical">
+        <Grid Style="{StaticResource StackLaouytStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="7.7*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Vertical">
+                <StackLayout Padding="2,4,4,2" Orientation="Horizontal">
+                    <StackLayout>
+                        <Label
+                            x:Name="clube_casa_posicao"
+                            FontAttributes="Bold"
+                            FontSize="Micro"
+                            Text="{Binding ClubeCasaPosicao}"
+                            TextColor="#697a82"
+                            VerticalOptions="Start">
+                            <Label.FontSize>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="8"
+                                    iOS="8" />
+                            </Label.FontSize>
+                        </Label>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="CenterAndExpand" WidthRequest="75">
+                        <Label
+                            x:Name="clube_casa_nome"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding ClubeCasaNome}"
+                            TextColor="White"
+                            VerticalTextAlignment="Center">
+                            <Label.FontSize>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="12"
+                                    iOS="10" />
+                            </Label.FontSize>
+                        </Label>
+                    </StackLayout>
+                    <ffimageloading:CachedImage
+                        x:Name="clube_casa_escudo"
+                        HeightRequest="30"
+                        Source="{Binding ClubeCasaEscudo}"
+                        WidthRequest="30" />
+
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="8">
+                        <Label
+                            x:Name="placar_oficial_mandante"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding PlacarOficialMandante}"
+                            TextColor="White">
+                            <Label.FontSize>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="12"
+                                    iOS="10" />
+                            </Label.FontSize>
+                        </Label>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label
+                            FontAttributes="Bold"
+                            Text="X"
+                            TextColor="#697a82">
+                            <Label.FontSize>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="12"
+                                    iOS="10" />
+                            </Label.FontSize>
+                        </Label>
+                    </StackLayout>
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="8">
+                        <Label
+                            x:Name="placar_oficial_visitante"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding PlacarOficialVisitante}"
+                            TextColor="White">
+                            <Label.FontSize>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="12"
+                                    iOS="10" />
+                            </Label.FontSize>
+                        </Label>
+                    </StackLayout>
+
+                    <ffimageloading:CachedImage
+                        x:Name="clube_visitante_escudo"
+                        HeightRequest="30"
+                        Source="{Binding ClubeVisitanteEscudo}"
+                        WidthRequest="30" />
+
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" WidthRequest="75">
+                        <Label
+                            x:Name="clube_visitante_nome"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding ClubeVisitanteNome}"
+                            TextColor="White"
+                            VerticalTextAlignment="Center">
+                            <Label.FontSize>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="12"
+                                    iOS="10" />
+                            </Label.FontSize>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+                            x:Name="clube_visitante_posicao"
+                            FontAttributes="Bold"
+                            FontSize="Micro"
+                            Text="{Binding ClubeVisitantePosicao}"
+                            TextColor="#697a82"
+                            VerticalOptions="Start">
+                            <Label.FontSize>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="8"
+                                    iOS="8" />
+                            </Label.FontSize>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <Label
+                        x:Name="txtDesc"
+                        FontSize="Micro"
+                        HorizontalTextAlignment="Center"
+                        TextColor="#697a82" />
+                </StackLayout>
+            </StackLayout>
+
+            <ListView
+                x:Name="ListJogadoresTimesCasa"
+                Grid.Row="1"
+                HasUnevenRows="true"
+                ItemsSource="{Binding AthleteMarkets}"
+                Style="{StaticResource ListViewStyle}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Style="{StaticResource ListViewStackLaouytStyle}">
+                                <Grid BackgroundColor="#697a82" HeightRequest="5" />
+                                <StackLayout
+                                    Padding="10,10,10,10"
+                                    Orientation="Horizontal"
+                                    Style="{StaticResource ListViewStackLaouytStyle}">
+                                    <ffimageloading:CachedImage Source="{Binding escudo_clube}" WidthRequest="40" />
+                                    <StackLayout
+                                        HorizontalOptions="StartAndExpand"
+                                        Spacing="0"
+                                        WidthRequest="150">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding apelido}"
+                                            TextColor="White">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="14"
+                                                    iOS="12" />
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Label
+                                            FontSize="10"
+                                            Text="{Binding posicao_string}"
+                                            TextColor="#697a82">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="10"
+                                                    iOS="8" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                        <StackLayout>
+                                            <Label
+                                                FontSize="Micro"
+                                                Text="{Binding variacoes}"
+                                                TextColor="White"
+                                                VerticalOptions="CenterAndExpand" />
+                                        </StackLayout>
+                                        <StackLayout
+                                            HorizontalOptions="StartAndExpand"
+                                            IsVisible="false"
+                                            VerticalOptions="End">
+                                            <Label
+                                                FontSize="9"
+                                                Text="{Binding scout_tela}"
+                                                TextColor="#7eaf7e" />
+                                            <Label
+                                                FontSize="9"
+                                                Text="{Binding scout_tela_def}"
+                                                TextColor="#b55b49" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout
+                                        HorizontalOptions="End"
+                                        MinimumWidthRequest="40"
+                                        VerticalOptions="Center"
+                                        WidthRequest="40">
+                                        <StackLayout IsVisible="false">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="14"
+                                                HorizontalTextAlignment="End"
+                                                Text="{Binding Pontos}"
+                                                TextColor="{Binding pont_color}" />
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <ffimageloading:CachedImage
+                                                HeightRequest="20"
+                                                Source="{Binding img_status}"
+                                                WidthRequest="20" />
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <adMob:AdMobView
+                x:Name="LayAdView"
+                Grid.Row="2"
+                HorizontalOptions="FillAndExpand" />
+
+
+        </Grid>
+    </StackLayout>
+</ContentPage>

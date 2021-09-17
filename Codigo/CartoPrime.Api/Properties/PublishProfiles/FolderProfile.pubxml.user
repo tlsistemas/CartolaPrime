@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\Projetos\TMSolutions\CartolaPrimeMVVM\CartolaPrime\CartoPrime.Api\bin\Release\netcoreapp3.1\publish\</_PublishTargetUrl>
+    <History>True|2021-06-20T19:34:43.0319604Z;True|2021-06-20T16:20:21.0236672-03:00;True|2021-06-13T14:33:42.4222004-03:00;True|2021-06-13T14:28:53.9608716-03:00;True|2021-06-13T14:19:00.9162109-03:00;True|2021-06-13T02:58:50.3854607-03:00;True|2021-06-13T02:46:48.8076416-03:00;True|2021-06-12T21:26:26.3244149-03:00;True|2021-06-12T21:15:18.3229596-03:00;True|2021-06-12T21:08:37.0463870-03:00;True|2021-06-12T20:35:39.1799246-03:00;True|2021-06-12T12:32:35.8224746-03:00;</History>
+  </PropertyGroup>
+</Project>

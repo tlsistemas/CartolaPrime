@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style>
+    .table td, .table th {
+        padding: .00rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+</style>
+<table class="table">
+    @foreach (var item in Model.MatchBons)
+    {
+        <tr>
+            <td>
+                <div class="text-center">
+                    <div class="col-12">
+                        <img src="@item.TimeA.Escudo" class="card-img-top" style="height: 30px; width: 30px; min-height: 30px; min-width: 30px;" alt="...">
+                    </div>
+                    <div class="col-12">
+                        <span class="card-title h6">@item.TimeA.Name</span><br />
+                        <span>4-3-3</span>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <table class="table text-center" style="margin-top: 30px;">
+                    <tr>
+                        <td>
+                            <span style="font-size: 10pt; text-align:left; font-weight: bold;">@String.Format("{0:0.00}", item.TimeA.ParcialDouble)</span>
+                        </td>
+                        <td>
+                            <i class="fas fa-times" style="font-size: 6pt;"></i>
+                        </td>
+                        <td>
+                            <span style="font-size: 10pt; text-align: right; font-weight: bold;">@String.Format("{0:0.00}", item.TimeB.ParcialDouble)</span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <div class="text-center">
+                    <div class="col-12">
+                        <img src="@item.TimeB.Escudo" class="card-img-top" style="height: 30px; width: 30px; min-height: 30px; min-width: 30px; " alt="...">
+                    </div>
+                    <div class="col-12">
+                        <span class="card-title h6">@item.TimeB.Name</span><br />
+                        <span>4-3-3</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "624230291902",
+    "project_id": "cartoprime-5990c",
+    "storage_bucket": "cartoprime-5990c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624230291902:android:c3fb4a1d3013166321c1ef",
+        "android_client_info": {
+          "package_name": "br.com.prime.ca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624230291902-84n8a9fis71g1m160mtuntbepjs6h3ec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2q6WtYrhQJhEPv5BoDMOQcyncjvO9Bds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624230291902-84n8a9fis71g1m160mtuntbepjs6h3ec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

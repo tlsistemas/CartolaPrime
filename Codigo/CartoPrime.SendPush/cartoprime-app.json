@@ -1,0 +1,12 @@
+﻿{
+  "type": "service_account",
+  "project_id": "cartoprime-5990c",
+  "private_key_id": "cd2cbd1c45d6e2d7e4b918e1ebde0e8a811b257b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC7dbnlVPoahnEU\nDwjAcgmfgY78uo7YeZqxAi8C0VTI7DdTiPid6g+c4LEBsydjket//szQ11GAtd20\nunkgNX0FgsZJCF1l3toZ4fW0pyBbPEt5fkSw8d019YnvNZBZKbyqcFznuoFnsvan\n4TVP8UZnHgIYEhnmvxxxFbE5m0SWpCvQLkCwiMTMn2StF3K1A3d2hhk4SJ3JsCZ4\nTRDgHtf89nvimWPAEzkPX6vpXzOmVZzpZF3ManjVukF7jYh+pZfSTKncoC+qrW3P\nTKj73JTilnn5+R5ySWYzoj/EwNjO0Yf8NxOAskh1ociePQ35gmivYC85XxfHjnwx\nS8AOuUlFAgMBAAECggEABG3F7uQbZeWykDhsCtfm4EzYSveWs7M+c1t2Lt6GiUSu\nE0bTe4TxyiazfTMgBXCHcXux7REujMLp3QDhfGBRzCqIcrtEMZ7v5Nf7d8F8YzYW\ndmVZoXCQEFv1CUtpAKJFdyVhHIcXKD2zKXOJpeeGXp334LJfcvMllzUIUzBsO2l/\nwxppYRv95L1y3ATB68nRma45EL2t/NtmMmZcgxzBjV4dtVt8lZfh38/4qHdIc4hn\nFy8suhoCQhDjmrZpipFsZahU2EJ9pPm46VBe9K9LfTvQgyx56Arpw9Gr6w98yiAv\nFJBG6BvoBeuurpyNzO/MhmEZo8d4eTWetyoQOR0S1QKBgQD3jWNebwbgQwjRPvsa\ndz7eDhVAnOfgBjGnUIfJzSag24edr+rxv4Xpn9W1ox4LEtj/HBsXoh7TU/AzbkqN\n+eqmvs0UGIyjDx0fpiXEmMvJ7eUs5BcZgY251TwMA84lRU37FE3xqXSzWOD/QUMk\nTQVOQ8YkfTSTUZEDfcPcTp6mawKBgQDB218rFZN5KqCB4c0aJhzFXFhc4lm7Thgy\nsRM41OxPsMgjc667A4GMjSj+2tlW2K2CQjE0UWoQhiyKkBjiqGTqgRujHaJ5IXuZ\n/YLGq/5pUYIAQoa9JwycbiT95cBobUzmOxJ/2tqT35I6BU63/a5ofGsHAd2l6Yvz\neUH/VTDbDwKBgBWIyh0b4Wg+zJSPOv65YtGkPfsJ6y3UvBsG6VkHrJWPo0N3WyO+\nemKxUcDkOKfT8uZ2RnEO3Emb4qhGrtuc4umwbVyTKiDBHtJy/JQWipu9QxNdoBjK\n6U5CG2AcMKGTXs45nPIpwIodcC0kOzf8Lzr4sFLaRWmPTeMU3KXcfPaTAoGAFugV\nFsI16ttem/pSggR+4dNHnbIhaECSG2tRGiYOxlvdSlMhEngXlsQXVAYIKHryBbJM\nniIApnM0UCs2xZGgWxVmbp/R0v5h3JBYI6GvLkKzWdSCl1dF5jYdqOK9GZnQvGO+\ni90Qdui0HqcB5jvToAUToIBX8ILoRpzNb55hZ4ECgYBMYz2f+Q13j35ejTuE1poa\nu59fofw8yUxZsYQq0ZgK3CGgSdfhGRZ1CKdsPKLqXCQfbNiw/fElbzS3tloOxd0y\nv3PPYQMBKndhclpEeyJTcM4Y0y0ddrY0CNQy0klry1voGKMcNBEPT6w69AyGZlma\nbuVLBl4DRY89NdvXhSGwEQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-g4pvy@cartoprime-5990c.iam.gserviceaccount.com",
+  "client_id": "101011004529011608809",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-g4pvy%40cartoprime-5990c.iam.gserviceaccount.com"
+}

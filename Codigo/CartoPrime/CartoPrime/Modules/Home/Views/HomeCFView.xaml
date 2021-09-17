@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Home.Views.HomeCFView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:models="clr-namespace:CartoPrime.Models"
+    xmlns:viewModels="clr-namespace:CartoPrime.Modules.Home.ViewModel"
+    Title="Home"
+    x:DataType="viewModels:HomeCFViewModel"
+    BackgroundColor="#2a2f32">
+    <Grid
+        Padding="16,0,16,0"
+        BackgroundColor="Transparent"
+        ColumnDefinitions="*,*,*"
+        RowDefinitions="0.5*, 8.5*,1*"
+        Style="{StaticResource BaseStyleGrid}"
+        VerticalOptions="StartAndExpand">
+
+        <StackLayout
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            BackgroundColor="Transparent"
+            HorizontalOptions="CenterAndExpand"
+            Orientation="Horizontal">
+            <StackLayout>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="Bem Vindo ao CartoPrime"
+                    TextColor="White" />
+                <!--<Label
+                    FontAttributes="Bold"
+                    FontSize="12"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="Mercado Aberto"
+                    TextColor="White" />-->
+            </StackLayout>
+        </StackLayout>
+
+
+        <CollectionView
+            x:Name="tiles"
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            Margin="0,8,0,0"
+            ItemSizingStrategy="MeasureFirstItem"
+            ItemsSource="{Binding Tiles}"
+            SelectionMode="None"
+            VerticalOptions="FillAndExpand">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    HorizontalItemSpacing="0"
+                    Orientation="Vertical"
+                    Span="3"
+                    VerticalItemSpacing="8" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Tile">
+                    <ScrollView VerticalOptions="StartAndExpand">
+
+                        <Frame
+                            Margin="0"
+                            Padding="6"
+                            BackgroundColor="Transparent"
+                            HeightRequest="90"
+                            Scale="{Binding Scale}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding BindingContext.SelectedTileCommand, Source={x:Reference Name=tiles}}"
+                                    CommandParameter="{Binding .}"
+                                    NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+
+                            <Frame
+                                Margin="0,-8"
+                                Padding="12,8"
+                                BackgroundColor="{Binding ColorTile}"
+                                BorderColor="{Binding ColorBorder}"
+                                CornerRadius="10"
+                                WidthRequest="150">
+                                <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*">
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="CenterAndExpand">
+                                        <Label
+                                            Padding="0"
+                                            FontSize="24"
+                                            HorizontalOptions="CenterAndExpand"
+                                            IsVisible="{Binding FAVisible}"
+                                            Style="{StaticResource FAS}"
+                                            Text="{Binding CodeFA}"
+                                            TextColor="{Binding ColorText}" />
+
+                                        <circle:CircleImage
+                                            Aspect="AspectFit"
+                                            BackgroundColor="Transparent"
+                                            BorderThickness="0"
+                                            HeightRequest="60"
+                                            HorizontalOptions="CenterAndExpand"
+                                            IsVisible="{Binding CircleImageVisible}"
+                                            Source="{Binding CircleImage}"
+                                            WidthRequest="60" />
+
+                                        <ffimageloading:CachedImage
+                                            Aspect="AspectFit"
+                                            BackgroundColor="Transparent"
+                                            HeightRequest="60"
+                                            HorizontalOptions="End"
+                                            IsVisible="{Binding ImageVisible}"
+                                            Source="{Binding Image}"
+                                            WidthRequest="60" />
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Vertical"
+                                        Spacing="2"
+                                        VerticalOptions="EndAndExpand">
+                                        <Label
+                                            FontSize="{StaticResource Size.Home.ExpressaoCentralCF}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            HorizontalTextAlignment="Center"
+                                            Style="{StaticResource FontFamilyUbuntuBold}"
+                                            Text="{Binding Titulo}"
+                                            TextColor="{Binding ColorText}"
+                                            TextType="Html"
+                                            VerticalOptions="CenterAndExpand"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            FontSize="{StaticResource Size.Home.ExpressaoCentral}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            HorizontalTextAlignment="Center"
+                                            IsVisible="{Binding SubExpressaoCentralVisible}"
+                                            Opacity="0.9"
+                                            Style="{StaticResource FontFamilyUbuntu}"
+                                            Text="{Binding SubExpressaoCentral}"
+                                            TextColor="{Binding ColorText}"
+                                            TextType="Html"
+                                            VerticalOptions="CenterAndExpand"
+                                            VerticalTextAlignment="Center" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+                    </ScrollView>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <adMob:AdMobView
+            x:Name="LayAdView"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalOptions="FillAndExpand" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="CartoPrime.Custom.Styles.Colors"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="TileBase">#eeeeee</Color>
+    <Color x:Key="TileDestac">#ff8a65</Color>
+    <Color x:Key="Preto">#000000</Color>
+    <Color x:Key="PrimaryColor">#00b131</Color>
+    <Color x:Key="SecundaryColor">#008324</Color>
+    <Color x:Key="BoraboraPrimaryColor">#ffcc0e</Color>
+    <Color x:Key="VerdeMottu">#13BA94</Color>
+    <Color x:Key="VerdeGradienteBoraBora1">#13BA94</Color>
+    <Color x:Key="VerdeGradienteBoraBora2">#109475</Color>
+    <Color x:Key="VerdeGradienteBoraBora3">#0E8166</Color>
+    <Color x:Key="VerdeGradienteBoraBora4">#0C6E57</Color>
+    <Color x:Key="SombraBoraBoraGradiente">#98707070</Color>
+    <Color x:Key="Mostarda">#D6B377</Color>
+    <Color x:Key="Sombra">#98000000</Color>
+    <Color x:Key="Cinza">#808080</Color>
+    <Color x:Key="VerdeInterno">#28BB50</Color>
+    <Color x:Key="Branco">#FFFFFF</Color>
+    <Color x:Key="BrancoSmoke">#F5F5F5</Color>
+    <Color x:Key="ErrorColor">#ff5252</Color>
+    <Color x:Key="ColorWarning">#DE3202</Color>
+    <Color x:Key="TextoEscuro">#001C08</Color>
+    <Color x:Key="YlmTXT">#3C3000</Color>
+    <Color x:Key="BlkTXT">#001E07</Color>
+    <Color x:Key="CinzaBackground">
+        #C3CfC7
+    </Color>
+</ResourceDictionary>

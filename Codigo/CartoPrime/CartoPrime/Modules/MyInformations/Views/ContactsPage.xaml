@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.MyInformations.Views.ContactsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    >
+    <StackLayout VerticalOptions="FillAndExpand">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout Grid.Row="0" Padding="5,10,10,10">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapOpenAvaliacao_Tapped" />
+                </StackLayout.GestureRecognizers>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    Text="Avalie e Incentive o App" />
+                <ffimageloading:CachedImage
+                    x:Name="imageView"
+                    Aspect="AspectFit"
+                    HeightRequest="38"
+                    Source="estrelas.png"
+                    WidthRequest="200" />
+            </StackLayout>
+
+            <StackLayout IsVisible="False">
+                <Label Text="Remova as Propagandas" />
+                <Button
+                    x:Name="btmRemovProp"
+                    Clicked="btmRemovProp_Clicked"
+                    Text="Assistir Video" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="1">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    Text="Desenvolvedor" />
+                <Label
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    Text="TL Sistemas" />
+                <Label
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    Text="thiago.mateus@tlsistemas.com.br" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                <ffimageloading:CachedImage
+                    Aspect="AspectFit"
+                    HeightRequest="125.5"
+                    Source="iconapp.png"
+                    WidthRequest="218.5" />
+            </StackLayout>
+            <adMob:AdMobView Grid.Row="3" HorizontalOptions="FillAndExpand" />
+            <adMob:AdMobView Grid.Row="4" HorizontalOptions="FillAndExpand" />
+            <adMob:AdMobView Grid.Row="5" HorizontalOptions="FillAndExpand" />
+        </Grid>
+    </StackLayout>
+</ContentPage>

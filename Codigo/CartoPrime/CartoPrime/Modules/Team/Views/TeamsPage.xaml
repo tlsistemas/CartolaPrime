@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Team.Views.TeamsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Title="Parciais"
+    BackgroundColor="{StaticResource NavBar}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshTeamsCommand}" IconImageSource="ic_refresh.png" />
+        <ToolbarItem Command="{Binding AddTeamsCommand}" IconImageSource="ic_insert.png" />
+    </ContentPage.ToolbarItems>
+    <Grid IsVisible="True" Style="{StaticResource StackLaouytStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <ListView
+                x:Name="ListTimes"
+                HasUnevenRows="true"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsRefreshing}"
+                IsVisible="{Binding AddedTime}"
+                ItemsSource="{Binding Teams}"
+                RefreshCommand="{Binding RefreshCommand}"
+                SelectedItem="{Binding TeamSelected, Mode=TwoWay}"
+                Style="{StaticResource ListViewStyle}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                Orientation="Vertical"
+                                Spacing="0"
+                                Style="{StaticResource ListViewStackLaouytStyle}">
+                                <Grid BackgroundColor="#697a82" HeightRequest="5" />
+                                <StackLayout
+                                    Padding="2,4,4,2"
+                                    Orientation="Horizontal"
+                                    Style="{StaticResource ListViewStackLaouytStyle}">
+                                    <StackLayout>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            Text="{Binding posicao}"
+                                            TextColor="white"
+                                            VerticalOptions="Start">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="8"
+                                                    iOS="8" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <ffimageloading:CachedImage
+                                        HeightRequest="30"
+                                        Source="{Binding url_escudo_png}"
+                                        WidthRequest="30" />
+                                    <StackLayout HorizontalOptions="Start" Spacing="1">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding nome}"
+                                            TextColor="white">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="12"
+                                                    iOS="10" />
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Label Text="{Binding CartoleiroEsquema}" TextColor="#697a82">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="10"
+                                                    iOS="8" />
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Label
+                                            FontSize="Micro"
+                                            IsVisible="True"
+                                            Text="{Binding TempoCartola}"
+                                            TextColor="#697a82">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="10"
+                                                    iOS="8" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="30">
+                                        <ffimageloading:CachedImage
+                                            Aspect="AspectFit"
+                                            Source="{Binding assinanteCaminho}"
+                                            VerticalOptions="CenterAndExpand" />
+                                        <ffimageloading:CachedImage
+                                            HeightRequest="20"
+                                            Source="{Binding clube_string}"
+                                            VerticalOptions="End"
+                                            WidthRequest="20" />
+                                    </StackLayout>
+                                    <StackLayout Spacing="0">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Medium"
+                                            Text="{Binding pontos}"
+                                            TextColor="white"
+                                            VerticalOptions="CenterAndExpand" />
+                                        <StackLayout
+                                            HorizontalOptions="CenterAndExpand"
+                                            Orientation="Vertical"
+                                            Spacing="0"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Text="{Binding patrimonioString}"
+                                                TextColor="#697a82"
+                                                VerticalOptions="StartAndExpand">
+                                                <Label.FontSize>
+                                                    <OnPlatform
+                                                        x:TypeArguments="x:Double"
+                                                        Android="10"
+                                                        iOS="8" />
+                                                </Label.FontSize>
+                                            </Label>
+                                            <Label
+                                                HorizontalOptions="CenterAndExpand"
+                                                IsVisible="false"
+                                                Text="{Binding variacao_patrimonio_string}"
+                                                TextColor="{Binding variacao_patrimonio_color}"
+                                                VerticalOptions="StartAndExpand">
+                                                <Label.FontSize>
+                                                    <OnPlatform
+                                                        x:TypeArguments="x:Double"
+                                                        Android="9"
+                                                        iOS="7" />
+                                                </Label.FontSize>
+                                            </Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            HorizontalOptions="CenterAndExpand"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding jogados}"
+                                            TextColor="#697a82"
+                                            VerticalOptions="StartAndExpand">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="12"
+                                                    iOS="10" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="CenterAndExpand"
+                                    Orientation="Horizontal"
+                                    Style="{StaticResource ListViewStackLaouytStyle}"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding mediaPrint}"
+                                        TextColor="White"
+                                        VerticalOptions="Center">
+                                        <Label.FontSize>
+                                            <OnPlatform
+                                                x:TypeArguments="x:Double"
+                                                Android="10"
+                                                iOS="8" />
+                                        </Label.FontSize>
+                                    </Label>
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        Orientation="Horizontal"
+                                        Style="{StaticResource ListViewStackLaouytStyle}"
+                                        VerticalOptions="CenterAndExpand">
+                                        <ffimageloading:CachedImage Source="ic_bola_white.png" WidthRequest="20" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding GCount}"
+                                            TextColor="White" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="|"
+                                            TextColor="White" />
+                                        <ffimageloading:CachedImage Source="ic_chuteira_white.png" WidthRequest="20" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding ACount}"
+                                            TextColor="White" />
+
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="|"
+                                            TextColor="White" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="{Binding ScoutString}"
+                                            TextColor="White"
+                                            VerticalOptions="Center">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="12"
+                                                    iOS="10" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout
+                x:Name="imgAberto"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="{Binding NotTime}"
+                VerticalOptions="CenterAndExpand">
+                <ffimageloading:CachedImage
+                    Aspect="AspectFit"
+                    HeightRequest="250"
+                    HorizontalOptions="CenterAndExpand"
+                    Source="iconapp.png"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    Padding="30,0,30,30"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    Text="Adicione times a sua lista de favoritos, e acompanhe as parciais."
+                    TextColor="White" />
+            </StackLayout>
+        </StackLayout>
+
+        <adMob:AdMobView
+            x:Name="LayAdView"
+            Grid.Row="1"
+            HorizontalOptions="FillAndExpand" />
+    </Grid>
+</ContentPage>

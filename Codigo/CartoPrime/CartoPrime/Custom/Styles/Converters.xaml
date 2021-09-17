@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ResourceDictionary
+    x:Class="CartoPrime.Custom.Styles.Converters"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:CartoPrime.Custom.Converters">
+
+    <converters:TitleCaseConverter x:Key="TitleCaseConverter" />
+    <converters:StringToColorConverter x:Key="StringToColorConverter" />
+    <converters:TelVendedor2MsgConverter x:Key="TelVendedor2MsgConverter" />
+    <converters:TelComprador2MsgConverter x:Key="TelComprador2MsgConverter" />
+    <converters:DataEntregaToLocalDateConverter x:Key="DataEntregaToLocalDateConverter" />
+
+
+</ResourceDictionary>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ResourceDictionary
+    x:Class="CartoPrime.Custom.Styles.Buttons"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+
+
+
+
+    <Style x:Key="BotaoRodapeBoraBora" TargetType="Button">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#f5f5f5" />
+        <Setter Property="FontSize" Value="17" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="BackgroundColor" Value="#13BA94" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="CornerRadius" Value="3" />
+
+    </Style>
+
+    <Style x:Key="BotaoModalsBoraBora" TargetType="Button">
+
+        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="BackgroundColor" Value="#13BA94" />
+        <Setter Property="CornerRadius" Value="3" />
+    </Style>
+
+    <Style x:Key="BotaoListaBoraBora" TargetType="Button">
+
+        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="BackgroundColor" Value="#13BA94" />
+        <Setter Property="CornerRadius" Value="3" />
+    </Style>
+    <Style x:Key="BotaoModalsBoraBoraNao" TargetType="Button">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="BackgroundColor" Value="#630303" />
+        <Setter Property="CornerRadius" Value="3" />
+
+    </Style>
+    <Style x:Key="ButtonLinkBoraBora" TargetType="Button">
+        <Setter Property="FontFamily" Value="Ubuntu-Regular.ttf#Ubuntu-Regular" />
+        <Setter Property="TextColor" Value="#13BA94" />
+        <Setter Property="BackgroundColor" Value="#FFFFFF" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="ButtonLinhaDoTempoBoraBora" TargetType="Button">
+        <Setter Property="FontFamily" Value="Ubuntu-Regular.ttf#Ubuntu-Regular" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="Padding" Value="36,0" />
+        <Setter Property="HeightRequest" Value="38" />
+        <Setter Property="BackgroundColor" Value="#009977" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+
+    </Style>
+
+    <Style x:Key="BotaoTransparenteSemIcone" TargetType="Button">
+        <Setter Property="FontFamily" Value="Ubuntu-Bold.ttf#Ubuntu-Bold" />
+        <Setter Property="TextColor" Value="#00B131" />
+        <Setter Property="CornerRadius" Value="24" />
+        <Setter Property="Padding" Value="16,8,16,8" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="BorderColor" Value="#00B131" />
+
+
+
+    </Style>
+</ResourceDictionary>

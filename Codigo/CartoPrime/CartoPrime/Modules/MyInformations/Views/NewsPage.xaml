@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.MyInformations.Views.NewsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListView
+            x:Name="ListNoticias"
+            Grid.Row="0"
+            BackgroundColor="#eaeaea"
+            HasUnevenRows="true"
+            ItemsSource="{Binding News}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="White" Orientation="Vertical">
+                            <Grid BackgroundColor="#eaeaea" HeightRequest="5" />
+                            <StackLayout
+                                Padding="1,1,1,1"
+                                BackgroundColor="White"
+                                Orientation="Horizontal">
+                                <ffimageloading:CachedImage
+                                    HeightRequest="90"
+                                    Source="{Binding thumbnail}"
+                                    WidthRequest="90" />
+                                <StackLayout HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding titulo}" TextColor="Black">
+                                        <Label.FontSize>
+                                            <OnPlatform
+                                                x:TypeArguments="x:Double"
+                                                Android="12"
+                                                iOS="12" />
+                                        </Label.FontSize>
+                                    </Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <adMob:AdMobView
+            x:Name="LayAdView"
+            Grid.Row="1"
+            HorizontalOptions="FillAndExpand" />
+    </Grid>
+</ContentPage>

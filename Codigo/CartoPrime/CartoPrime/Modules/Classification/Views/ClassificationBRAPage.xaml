@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Classification.Views.ClassificationBRAPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Title="Classificação BRA"
+    BackgroundColor="{StaticResource NavBar}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="8.7*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout
+            Grid.Row="0"
+            Orientation="Horizontal"
+            Style="{StaticResource StackLaouytStyle}">
+            <StackLayout Orientation="Vertical" WidthRequest="182">
+                <Label
+                    x:Name="txtNomeTime"
+                    FontAttributes="Bold"
+                    Text="CLASSIFICAÇÃO"
+                    TextColor="White">
+                    <Label.FontSize>
+                        <OnPlatform
+                            x:TypeArguments="x:Double"
+                            Android="14"
+                            iOS="12" />
+                    </Label.FontSize>
+                </Label>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" WidthRequest="27">
+                <Label Text="P" TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" WidthRequest="27">
+                <Label Text="J" TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" WidthRequest="27">
+                <Label Text="V" TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" WidthRequest="27">
+                <Label Text="E" TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" WidthRequest="27">
+                <Label Text="D" TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" WidthRequest="27">
+                <Label Text="SG" TextColor="White" />
+            </StackLayout>
+        </StackLayout>
+
+        <ListView
+            x:Name="ListClassificao"
+            Grid.Row="1"
+            HasUnevenRows="true"
+            ItemsSource="{Binding ClassificationBra}"
+            Style="{StaticResource ListViewStyle}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" Style="{StaticResource ListViewStackLaouytStyle}">
+                            <Grid BackgroundColor="#697a82" HeightRequest="5" />
+                            <StackLayout
+                                Padding="5,5,5,5"
+                                Orientation="Horizontal"
+                                Style="{StaticResource ListViewStackLaouytStyle}">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Default"
+                                    Text="{Binding ordem}"
+                                    TextColor="#989b9e"
+                                    WidthRequest="20" />
+                                <ffimageloading:CachedImage Source="{Binding equipe.escudos._60x60}" />
+                                <StackLayout
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="100">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Default"
+                                        Text="{Binding equipe.sigla}"
+                                        TextColor="White"
+                                        VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Text="{Binding variacao_string}"
+                                        TextColor="{Binding variacao_color}"
+                                        VerticalOptions="EndAndExpand">
+                                        <Label.FontSize>
+                                            <OnPlatform
+                                                x:TypeArguments="x:Double"
+                                                Android="8"
+                                                iOS="7" />
+                                        </Label.FontSize>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="25">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Text="{Binding pontos}"
+                                        TextColor="#989b9e"
+                                        VerticalOptions="EndAndExpand">
+                                        <Label.FontSize>
+                                            <OnPlatform
+                                                x:TypeArguments="x:Double"
+                                                Android="14"
+                                                iOS="12" />
+                                        </Label.FontSize>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="25">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Text="{Binding jogos}"
+                                        TextColor="#989b9e"
+                                        VerticalOptions="StartAndExpand">
+                                        <Label.FontSize>
+                                            <OnPlatform
+                                                x:TypeArguments="x:Double"
+                                                Android="14"
+                                                iOS="12" />
+                                        </Label.FontSize>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="25">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Text="{Binding vitorias}"
+                                        TextColor="#989b9e"
+                                        VerticalOptions="StartAndExpand">
+                                        <Label.FontSize>
+                                            <OnPlatform
+                                                x:TypeArguments="x:Double"
+                                                Android="14"
+                                                iOS="12" />
+                                        </Label.FontSize>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="25">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Text="{Binding empates}"
+                                        TextColor="#989b9e"
+                                        VerticalOptions="StartAndExpand">
+                                        <Label.FontSize>
+                                            <OnPlatform
+                                                x:TypeArguments="x:Double"
+                                                Android="14"
+                                                iOS="12" />
+                                        </Label.FontSize>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="StartAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="25">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Text="{Binding derrotas}"
+                                        TextColor="#989b9e"
+                                        VerticalOptions="StartAndExpand">
+                                        <Label.FontSize>
+                                            <OnPlatform
+                                                x:TypeArguments="x:Double"
+                                                Android="14"
+                                                iOS="12" />
+                                        </Label.FontSize>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="25">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Text="{Binding saldo_gols}"
+                                        TextColor="#989b9e"
+                                        VerticalOptions="StartAndExpand">
+                                        <Label.FontSize>
+                                            <OnPlatform
+                                                x:TypeArguments="x:Double"
+                                                Android="14"
+                                                iOS="12" />
+                                        </Label.FontSize>
+                                    </Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+
+        <adMob:AdMobView
+            x:Name="LayAdView"
+            Grid.Row="2"
+            HorizontalOptions="FillAndExpand" />
+    </Grid>
+</ContentPage>

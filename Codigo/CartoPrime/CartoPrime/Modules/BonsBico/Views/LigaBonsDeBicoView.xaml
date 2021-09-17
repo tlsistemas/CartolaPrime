@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.BonsBico.Views.LigaBonsDeBicoView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Converter="clr-namespace:CartoPrime.Converters"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource NavBar}"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshCommand}" IconImageSource="ic_refresh.png" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:StringToColorConverter x:Key="StringToColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="8.7*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label
+            x:Name="txtRodada"
+            Grid.Row="0"
+            FontAttributes="Bold"
+            FontSize="Small"
+            HorizontalTextAlignment="Center"
+            Text="{Binding Rodada}"
+            TextColor="White" />
+
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                <StackLayout
+                    Padding="0,10,0,0"
+                    BindableLayout.ItemsSource="{Binding Jogos}"
+                    Style="{StaticResource ListViewStyle}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="0,10,0,10" Style="{StaticResource ListViewStackLaouytStyle}">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped" />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+
+                                    <StackLayout VerticalOptions="CenterAndExpand">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            HorizontalOptions="Start"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding TimeA.Jogados}"
+                                            TextColor="White" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="75">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding TimeA.Name}"
+                                            TextColor="White"
+                                            VerticalTextAlignment="Center">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="10"
+                                                    iOS="10" />
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding TimeA.NameCartoleiro}"
+                                            TextColor="White"
+                                            VerticalTextAlignment="Center">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="8"
+                                                    iOS="10" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <ffimageloading:CachedImage
+                                        HeightRequest="35"
+                                        Source="{Binding TimeA.Escudo}"
+                                        WidthRequest="35" />
+
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="30">
+                                        <Label
+                                            FontSize="Caption"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding TimeA.ParcialDouble, StringFormat='{0:N2}'}"
+                                            TextColor="{Binding TimeA.Color}" />
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            Text="X"
+                                            TextColor="White" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="30">
+                                        <Label
+                                            FontSize="Caption"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding TimeB.ParcialDouble, StringFormat='{0:N2}'}"
+                                            TextColor="{Binding TimeB.Color}" />
+                                    </StackLayout>
+
+                                    <ffimageloading:CachedImage
+                                        HeightRequest="35"
+                                        Source="{Binding TimeB.Escudo}"
+                                        WidthRequest="35" />
+
+
+                                    <StackLayout
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="75">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding TimeB.Name}"
+                                            TextColor="White"
+                                            VerticalTextAlignment="Center">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="10"
+                                                    iOS="10" />
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding TimeB.NameCartoleiro}"
+                                            TextColor="White"
+                                            VerticalTextAlignment="Center">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="8"
+                                                    iOS="10" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="CenterAndExpand">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            HorizontalOptions="Start"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding TimeB.Jogados}"
+                                            TextColor="White">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="12"
+                                                    iOS="10" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout
+                                        BackgroundColor="White"
+                                        HorizontalOptions="CenterAndExpand"
+                                        IsVisible="False"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            HorizontalTextAlignment="Center"
+                                            Text="Ver Escalação"
+                                            TextColor="White"
+                                            VerticalOptions="CenterAndExpand" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Micro"
+                                        HorizontalTextAlignment="Center"
+                                        Text="Ver Escalação"
+                                        TextColor="White"
+                                        VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+
+        <adMob:AdMobView
+            x:Name="LayAdView"
+            Grid.Row="2"
+            HorizontalOptions="FillAndExpand" />
+        <!--<AbsoluteLayout x:Name="lytAdmob" Grid.Row="2" >
+            <fab:FloatingActionButtonView
+				       x:Name="fabUpdate" ColorNormal="WhiteSmoke"
+				        ImageName="refresh48.png"
+				        Size="Mini"
+				        AbsoluteLayout.LayoutFlags="PositionProportional"
+				AbsoluteLayout.LayoutBounds="0, 1, AutoSize, AutoSize" />
+        </AbsoluteLayout>-->
+    </Grid>
+</ContentPage>

@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Round.Views.MostClimbedPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Title="Mais Escalados"
+    BackgroundColor="{StaticResource NavBar}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding RefreshButtonCommand}" IconImageSource="ic_refresh.png" />
+    </ContentPage.ToolbarItems>
+    <Grid Style="{StaticResource StackLaouytStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListView
+            Grid.Row="0"
+            HasUnevenRows="true"
+            IsPullToRefreshEnabled="True"
+            IsRefreshing="{Binding IsRefreshing}"
+            ItemsSource="{Binding Players}"
+            RefreshCommand="{Binding RefreshCommand}"
+            Style="{StaticResource ListViewStyle}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" Style="{StaticResource ListViewStackLaouytStyle}">
+                            <Grid BackgroundColor="#697a82" HeightRequest="5" />
+
+                            <StackLayout
+                                Padding="10,10,10,10"
+                                Orientation="Vertical"
+                                Style="{StaticResource ListViewStackLaouytStyle}">
+                                <StackLayout Orientation="Horizontal">
+                                    <AbsoluteLayout>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            Text="{Binding Count}"
+                                            TextColor="White" />
+                                        <circle:CircleImage
+                                            Margin="10,2"
+                                            Aspect="AspectFit"
+                                            BackgroundColor="Transparent"
+                                            HeightRequest="40"
+                                            Source="{Binding Atleta.foto140}"
+                                            WidthRequest="40" />
+                                    </AbsoluteLayout>
+                                    <FlexLayout Direction="Column">
+                                        <Label
+                                            FontSize="Small"
+                                            Text="{Binding Atleta.apelido}"
+                                            TextColor="White" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            Text="{Binding posicao_abreviacao}"
+                                            TextColor="#989b9e" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            Text="{Binding clube_nome}"
+                                            TextColor="#989b9e" />
+                                    </FlexLayout>
+                                    <Label
+                                        FontSize="Default"
+                                        HorizontalOptions="EndAndExpand"
+                                        Text="{Binding escalacoesString}"
+                                        TextColor="White"
+                                        VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+
+                                <Grid HorizontalOptions="CenterAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        VerticalOptions="CenterAndExpand">
+                                        <ffimageloading:CachedImage Source="{Binding Atleta.Partida.clube_casa_escudo}" />
+                                        <Label Text="X" TextColor="White" />
+                                        <ffimageloading:CachedImage Source="{Binding Atleta.Partida.clube_visitante_escudo}" />
+                                    </StackLayout>
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding Atleta.media_num, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="Média" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding Atleta.pontos_num, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="Última" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="3"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontAttributes="Bold"
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="C$" />
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding Atleta.preco_double, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="Preço" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="4"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding Atleta.min_valorizacao, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="min p/ val" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <adMob:AdMobView
+            x:Name="LayAdView"
+            Grid.Row="1"
+            HorizontalOptions="FillAndExpand" />
+    </Grid>
+
+
+</ContentPage>

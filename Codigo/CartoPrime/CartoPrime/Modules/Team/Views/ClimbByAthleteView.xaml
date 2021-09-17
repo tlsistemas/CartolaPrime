@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Team.Views.ClimbByAthleteView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:converter="clr-namespace:CartoPrime.Converters"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:uiControls="clr-namespace:CartoPrime.Controls"
+    xmlns:viewmodel="clr-namespace:CartoPrime.Modules.Team.ViewModels"
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource NavBar}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:SchemaToStringConverter x:Key="SchemaToString" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid IsVisible="True" Style="{StaticResource StackLaouytStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout
+            Grid.Row="0"
+            Orientation="Vertical"
+            Spacing="-5"
+            VerticalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                <ffimageloading:CachedImage
+                    x:Name="txtFotoTime"
+                    HeightRequest="50"
+                    Source="{Binding Team.time.url_escudo_png}"
+                    WidthRequest="50" />
+                <StackLayout HorizontalOptions="StartAndExpand" Spacing="0">
+                    <Label
+                        x:Name="txtNomeTime"
+                        FontAttributes="Bold"
+                        Text="{Binding Team.time.nome}"
+                        TextColor="White">
+                        <Label.FontSize>
+                            <OnPlatform
+                                x:TypeArguments="x:Double"
+                                Android="14"
+                                iOS="12" />
+                        </Label.FontSize>
+                    </Label>
+                    <Label
+                        x:Name="txtCartolEsque"
+                        Text="{Binding Team.time.cartoleiro_esquema}"
+                        TextColor="#989b9e">
+                        <Label.FontSize>
+                            <OnPlatform
+                                x:TypeArguments="x:Double"
+                                Android="12"
+                                iOS="10" />
+                        </Label.FontSize>
+                    </Label>
+                    <Label
+                        x:Name="txtId"
+                        IsVisible="False"
+                        Text="{Binding Team.time.time_id}"
+                        TextColor="White" />
+                </StackLayout>
+                <Label
+                    x:Name="txtParcial"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    Text="{Binding Team.time.ParcialTime}"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="false"
+                Orientation="Horizontal">
+                <ffimageloading:CachedImage Source="ic_bola_white.png" WidthRequest="20" />
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding GCount}"
+                    TextColor="White" />
+                <Label
+                    FontAttributes="Bold"
+                    Text="|"
+                    TextColor="White" />
+                <ffimageloading:CachedImage Source="ic_chuteira_white.png" WidthRequest="20" />
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding ACount}"
+                    TextColor="White" />
+
+                <Label
+                    FontAttributes="Bold"
+                    Text="| DE"
+                    TextColor="White" />
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding DECount}"
+                    TextColor="White" />
+
+                <Label
+                    FontAttributes="Bold"
+                    Text="| DS"
+                    TextColor="White" />
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding DSCount}"
+                    TextColor="White" />
+
+                <Label
+                    FontAttributes="Bold"
+                    Text="| SG"
+                    TextColor="White" />
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding SGCount}"
+                    TextColor="White" />
+
+            </StackLayout>
+            <StackLayout
+                Padding="-4"
+                IsVisible="false"
+                Orientation="Horizontal"
+                VerticalOptions="EndAndExpand">
+                <StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PreviousTeamsCommand}" />
+                    </StackLayout.GestureRecognizers>
+                    <ffimageloading:CachedImage
+                        HorizontalOptions="StartAndExpand"
+                        Source="bt_back.png"
+                        WidthRequest="30" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Label
+                        FontAttributes="Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Rodada"
+                        TextColor="#989b9e"
+                        VerticalOptions="CenterAndExpand" />
+                    <Label
+                        FontAttributes="Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{Binding Round}"
+                        TextColor="#989b9e"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NextTeamsCommand}" />
+                    </StackLayout.GestureRecognizers>
+                    <ffimageloading:CachedImage
+                        HorizontalOptions="EndAndExpand"
+                        Source="bt_next.png"
+                        WidthRequest="30" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                <!--<uiControls:CustomPicker
+                    BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    ItemDisplayBinding="{Binding ., Converter={StaticResource SchemaToString}}"
+                    ItemsSource="{Binding Esquemas}"
+                    SelectedItem="{Binding EsquemasSelected}"
+                    SelectedIndex="{Binding EsquemasIndex}"
+                    TextColor="Black"
+                    WidthRequest="250">
+                </uiControls:CustomPicker>-->
+                <!--<Picker
+                    BackgroundColor="White"
+                    ItemDisplayBinding="{Binding ., Converter={StaticResource SchemaToString}}"
+                    ItemsSource="{Binding Esquemas}"
+                    SelectedItem="{Binding EsquemasSelected, Mode=TwoWay}"
+                    TextColor="Black"
+                    TitleColor="Black" />-->
+
+                <StackLayout
+                    Grid.Row="0"
+                    Padding="0,10,0,0"
+                    BindableLayout.ItemsSource="{Binding Athletes}"
+                    Style="{StaticResource ListViewStyle}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical" Style="{StaticResource ListViewStackLaouytStyle}">
+                                <!--<Grid BackgroundColor="#697a82" HeightRequest="5" />-->
+                                <StackLayout
+                                    Padding="10,10,10,10"
+                                    Orientation="Horizontal"
+                                    Style="{StaticResource ListViewStackLaouytStyle}">
+                                    <circle:CircleImage
+                                        Aspect="AspectFit"
+                                        BackgroundColor="Transparent"
+                                        BorderThickness="0"
+                                        Source="{Binding foto140}"
+                                        WidthRequest="35" />
+                                    <StackLayout HorizontalOptions="Start" Spacing="0">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding apelido}"
+                                            TextColor="White">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="14"
+                                                    iOS="12" />
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Label Text="{Binding posicao}" TextColor="#989b9e">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="12"
+                                                    iOS="10" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="Start" VerticalOptions="Center">
+                                        <ffimageloading:CachedImage IsVisible="{Binding capita}" Source="ic_capita.png" />
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="End">
+                                        <Label
+                                            Text="{Binding Scouts}"
+                                            TextColor="#7eaf7e"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="10"
+                                                    iOS="8" />
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Label
+                                            Text="{Binding ScoutsDef}"
+                                            TextColor="#b55b49"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="10"
+                                                    iOS="8" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding pontos_capita_string}"
+                                            TextColor="{Binding pont_color}">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="11"
+                                                    iOS="12" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding Pontos}"
+                                            TextColor="{Binding pont_color}">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="14"
+                                                    iOS="12" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <Grid HorizontalOptions="CenterAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        VerticalOptions="CenterAndExpand">
+                                        <ffimageloading:CachedImage Source="{Binding Partida.clube_casa_escudo}" />
+                                        <Label Text="X" TextColor="White" />
+                                        <ffimageloading:CachedImage Source="{Binding Partida.clube_visitante_escudo}" />
+                                    </StackLayout>
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding media_num, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="Média" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding Pontos, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="Última" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="3"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontAttributes="Bold"
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="C$" />
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding preco_double, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="Preço" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="4"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding min_valorizacao, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="min p/ val" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    Text="Banco de Reservas"
+                    TextColor="White" />
+                <StackLayout
+                    Grid.Row="0"
+                    Padding="0,10,0,0"
+                    BindableLayout.ItemsSource="{Binding AthletesReservas}"
+                    Style="{StaticResource ListViewStyle}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical" Style="{StaticResource ListViewStackLaouytStyle}">
+                                <!--<Grid BackgroundColor="#697a82" HeightRequest="5" />-->
+                                <StackLayout
+                                    Padding="10,10,10,10"
+                                    Orientation="Horizontal"
+                                    Style="{StaticResource ListViewStackLaouytStyle}">
+                                    <circle:CircleImage
+                                        Aspect="AspectFit"
+                                        BackgroundColor="Transparent"
+                                        BorderThickness="0"
+                                        Source="{Binding foto140}"
+                                        WidthRequest="35" />
+                                    <StackLayout HorizontalOptions="Start" Spacing="0">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding apelido}"
+                                            TextColor="White">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="14"
+                                                    iOS="12" />
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Label Text="{Binding posicao}" TextColor="#989b9e">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="12"
+                                                    iOS="10" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="Start" VerticalOptions="Center">
+                                        <ffimageloading:CachedImage IsVisible="{Binding capita}" Source="ic_capita.png" />
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="End">
+                                        <Label
+                                            Text="{Binding Scouts}"
+                                            TextColor="#7eaf7e"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="10"
+                                                    iOS="8" />
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Label
+                                            Text="{Binding ScoutsDef}"
+                                            TextColor="#b55b49"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="10"
+                                                    iOS="8" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding pontos_capita_string}"
+                                            TextColor="{Binding pont_color}">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="11"
+                                                    iOS="12" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding Pontos}"
+                                            TextColor="{Binding pont_color}">
+                                            <Label.FontSize>
+                                                <OnPlatform
+                                                    x:TypeArguments="x:Double"
+                                                    Android="14"
+                                                    iOS="12" />
+                                            </Label.FontSize>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <Grid HorizontalOptions="CenterAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        VerticalOptions="CenterAndExpand">
+                                        <ffimageloading:CachedImage Source="{Binding Partida.clube_casa_escudo}" />
+                                        <Label Text="X" TextColor="White" />
+                                        <ffimageloading:CachedImage Source="{Binding Partida.clube_visitante_escudo}" />
+                                    </StackLayout>
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding media_num, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="Média" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding Pontos, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="Última" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="3"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontAttributes="Bold"
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="C$" />
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding preco_double, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="Preço" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="4"
+                                        HorizontalOptions="EndAndExpand"
+                                        HorizontalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    FontSize="Caption"
+                                                    ForegroundColor="White"
+                                                    Text="{Binding min_valorizacao, StringFormat='{0:N2}'}" />
+                                                <Span Text="&#10;" />
+                                                <Span
+                                                    FontSize="Micro"
+                                                    ForegroundColor="White"
+                                                    Text="min p/ val" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </StackLayout>
+
+
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <adMob:AdMobView
+            x:Name="LayAdView"
+            Grid.Row="2"
+            HorizontalOptions="FillAndExpand" />
+    </Grid>
+</ContentPage>

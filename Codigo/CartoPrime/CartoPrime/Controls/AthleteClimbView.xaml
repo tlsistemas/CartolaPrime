@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="CartoPrime.Controls.AthleteClimbView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    x:Name="climb_view">
+    <StackLayout Spacing="0">
+        <Label FontSize="Micro" TextColor="White" />
+        <AbsoluteLayout>
+            <circle:CircleImage
+                Aspect="AspectFit"
+                BackgroundColor="Transparent"
+                BorderThickness="0"
+                HeightRequest="{Binding Source={x:Reference climb_view}, Path=HeightAt}"
+                HorizontalOptions="CenterAndExpand"
+                Source="loginca.png"
+                WidthRequest="{Binding Source={x:Reference climb_view}, Path=WidthAt}" />
+            <circle:CircleImage
+                AbsoluteLayout.LayoutBounds="35, 35"
+                Aspect="AspectFit"
+                BackgroundColor="Transparent"
+                BorderThickness="0"
+                HeightRequest="15"
+                Source="fora.png"
+                WidthRequest="15" />
+            <Label
+                AbsoluteLayout.LayoutBounds="16, 47"
+                FontSize="Micro"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Source={x:Reference climb_view}, Path=Position}"
+                TextColor="White" />
+        </AbsoluteLayout>
+    </StackLayout>
+</ContentView>

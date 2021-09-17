@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Views.AdsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:flex="clr-namespace:Flex.Controls;assembly=Flex"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Materiais para Mitar"
+    BackgroundColor="{StaticResource NavBar}">
+    <StackLayout Style="{StaticResource StackLaouytStyle}">
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Vertical" Style="{StaticResource ListViewStyle}">
+                    <StackLayout HeightRequest="5" Style="{StaticResource ListViewStyle}" />
+                    <StackLayout
+                        Padding="10,10,10,10"
+                        Orientation="Horizontal"
+                        Style="{StaticResource ListViewStackLaouytStyle}">
+                        <ffimageloading:CachedImage
+                            Aspect="AspectFit"
+                            HeightRequest="100"
+                            Source="ic_29dicas.png" />
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Cartola FC - 29 dicas para mitar toda rodada" TextColor="White" />
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+                                <flex:FlexButton
+                                    BackgroundColor="#2e9dd5"
+                                    Clicked="Btm29DicasSite_Clicked"
+                                    FontAttributes="Bold"
+                                    ForegroundColor="White"
+                                    HasShadow="True"
+                                    HeightRequest="40"
+                                    HighlightBackgroundColor="White"
+                                    HighlightForegroundColor="White"
+                                    Icon="ic_view.png"
+                                    IconOrientation="Left"
+                                    IconTintEnabled="False"
+                                    Text="Detalhes"
+                                    WidthRequest="100" />
+                                <flex:FlexButton
+                                    BackgroundColor="#5abb4f"
+                                    Clicked="Btm29DicasCheckout_Clicked"
+                                    FontAttributes="Bold"
+                                    ForegroundColor="White"
+                                    HasShadow="True"
+                                    HeightRequest="40"
+                                    HighlightBackgroundColor="White"
+                                    HighlightForegroundColor="White"
+                                    Icon="ic_buy.png"
+                                    IconOrientation="Left"
+                                    IconTintEnabled="False"
+                                    Text="Comprar"
+                                    WidthRequest="100" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Style="{StaticResource ListViewStyle}">
+                    <StackLayout HeightRequest="5" Style="{StaticResource ListViewStyle}" />
+                    <StackLayout
+                        Padding="10,10,10,10"
+                        Orientation="Horizontal"
+                        Style="{StaticResource ListViewStackLaouytStyle}">
+                        <ffimageloading:CachedImage
+                            Aspect="AspectFit"
+                            HeightRequest="100"
+                            Source="ic_dicas_cartola_fc.png" />
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Dicas Cartola FC" TextColor="White" />
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+                                <flex:FlexButton
+                                    BackgroundColor="#2e9dd5"
+                                    Clicked="BtmDicasSite_Clicked"
+                                    FontAttributes="Bold"
+                                    ForegroundColor="White"
+                                    HasShadow="True"
+                                    HeightRequest="40"
+                                    HighlightBackgroundColor="White"
+                                    HighlightForegroundColor="White"
+                                    Icon="ic_view.png"
+                                    IconOrientation="Left"
+                                    IconTintEnabled="False"
+                                    Text="Detalhes"
+                                    WidthRequest="100" />
+                                <flex:FlexButton
+                                    BackgroundColor="#5abb4f"
+                                    Clicked="BtmDicasCheckout_Clicked"
+                                    FontAttributes="Bold"
+                                    ForegroundColor="White"
+                                    HasShadow="True"
+                                    HeightRequest="40"
+                                    HighlightBackgroundColor="White"
+                                    HighlightForegroundColor="White"
+                                    Icon="ic_buy.png"
+                                    IconOrientation="Left"
+                                    IconTintEnabled="False"
+                                    Text="Comprar"
+                                    WidthRequest="100" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Style="{StaticResource ListViewStyle}">
+                    <StackLayout HeightRequest="5" Style="{StaticResource ListViewStyle}" />
+                    <StackLayout
+                        Padding="10,10,10,10"
+                        Orientation="Horizontal"
+                        Style="{StaticResource ListViewStackLaouytStyle}">
+                        <ffimageloading:CachedImage
+                            Aspect="AspectFit"
+                            HeightRequest="100"
+                            Source="ic_cartomante.png" />
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Cartola FC - Segredos da Cartomante FC" TextColor="White" />
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+                                <flex:FlexButton
+                                    BackgroundColor="#2e9dd5"
+                                    Clicked="BtmCartomanteMensal_Clicked"
+                                    FontAttributes="Bold"
+                                    ForegroundColor="White"
+                                    HasShadow="True"
+                                    HeightRequest="40"
+                                    HighlightBackgroundColor="White"
+                                    HighlightForegroundColor="White"
+                                    Icon="ic_buy.png"
+                                    IconOrientation="Left"
+                                    IconTintEnabled="False"
+                                    Text="Mensal"
+                                    WidthRequest="100" />
+                                <flex:FlexButton
+                                    BackgroundColor="#5abb4f"
+                                    Clicked="BtmCartomanteAnual_Clicked"
+                                    FontAttributes="Bold"
+                                    ForegroundColor="White"
+                                    HasShadow="True"
+                                    HeightRequest="40"
+                                    HighlightBackgroundColor="White"
+                                    HighlightForegroundColor="White"
+                                    Icon="ic_buy.png"
+                                    IconOrientation="Left"
+                                    IconTintEnabled="False"
+                                    Text="Anual"
+                                    WidthRequest="100" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Vertical" Style="{StaticResource ListViewStyle}">
+                    <StackLayout HeightRequest="5" Style="{StaticResource ListViewStyle}" />
+                    <StackLayout
+                        Padding="10,10,10,10"
+                        Orientation="Horizontal"
+                        Style="{StaticResource ListViewStackLaouytStyle}">
+                        <ffimageloading:CachedImage
+                            Aspect="AspectFit"
+                            HeightRequest="100"
+                            Source="ic_invest_fut.png" />
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Trader Esportivo" TextColor="White" />
+                            <StackLayout
+                                HorizontalOptions="CenterAndExpand"
+                                Orientation="Horizontal"
+                                VerticalOptions="CenterAndExpand">
+                                <flex:FlexButton
+                                    BackgroundColor="#2e9dd5"
+                                    Clicked="BtmTraderSite_Clicked"
+                                    FontAttributes="Bold"
+                                    ForegroundColor="White"
+                                    HasShadow="True"
+                                    HeightRequest="40"
+                                    HighlightBackgroundColor="White"
+                                    HighlightForegroundColor="White"
+                                    Icon="ic_view.png"
+                                    IconOrientation="Left"
+                                    IconTintEnabled="False"
+                                    Text="Detalhes"
+                                    WidthRequest="100" />
+                                <flex:FlexButton
+                                    BackgroundColor="#5abb4f"
+                                    Clicked="BtmTraderCheckout_Clicked"
+                                    FontAttributes="Bold"
+                                    ForegroundColor="White"
+                                    HasShadow="True"
+                                    HeightRequest="40"
+                                    HighlightBackgroundColor="White"
+                                    HighlightForegroundColor="White"
+                                    Icon="ic_buy.png"
+                                    IconOrientation="Left"
+                                    IconTintEnabled="False"
+                                    Text="Comprar"
+                                    WidthRequest="100" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <adMob:AdMobView x:Name="LayAdView" HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+</ContentPage>

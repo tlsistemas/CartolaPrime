@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Team.Views.ClimbView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:controls="clr-namespace:CartoPrime.Controls"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource NavBar}">
+    <Grid HorizontalOptions="CenterAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--<RelativeLayout
+            Grid.Row="0"
+            BackgroundColor="White"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+            <ffimageloading:CachedImage
+                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All"
+                Aspect="AspectFit"
+                HorizontalOptions="CenterAndExpand"
+                Source="estadio.png"
+                VerticalOptions="CenterAndExpand" />
+
+            <controls:AthleteClimbView
+                x:Name="AtaEsquerda"
+                HeightAt="50"
+                Position="{Binding Athlete12.Position}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,
+                                                                  Constant=40}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=Constant,
+                                                                  Constant=60}"
+                WidthAt="50">
+                <controls:AthleteClimbView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete12.PositionId}" />
+                </controls:AthleteClimbView.GestureRecognizers>
+            </controls:AthleteClimbView>
+
+            <controls:AthleteClimbView
+                x:Name="AtaCentral"
+                HeightAt="50"
+                Position="{Binding Athlete11.Position}"
+                RelativeLayout.XConstraint="115"
+                RelativeLayout.YConstraint="30"
+                WidthAt="50">
+                <controls:AthleteClimbView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete11.PositionId}" />
+                </controls:AthleteClimbView.GestureRecognizers>
+            </controls:AthleteClimbView>
+
+            <controls:AthleteClimbView
+                x:Name="AtaDireita"
+                AbsoluteLayout.LayoutBounds="{Binding Athlete10.Area}"
+                HeightAt="50"
+                Position="{Binding Athlete10.Position}"
+                RelativeLayout.XConstraint="205"
+                RelativeLayout.YConstraint="60"
+                WidthAt="50">
+                <controls:AthleteClimbView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete10.PositionId}" />
+                </controls:AthleteClimbView.GestureRecognizers>
+            </controls:AthleteClimbView>
+        </RelativeLayout>-->
+
+        <StackLayout
+            Grid.Row="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <AbsoluteLayout
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <ffimageloading:CachedImage
+                    AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                    AbsoluteLayout.LayoutFlags="All"
+                    Aspect="AspectFit"
+                    HorizontalOptions="FillAndExpand"
+                    Source="estadio.png"
+                    VerticalOptions="FillAndExpand" />
+                <controls:AthleteClimbView
+                    x:Name="AtaEsquerda"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete12.Area, Mode=Default}"
+                    HeightAt="50"
+                    HorizontalOptions="FillAndExpand"
+                    Position="{Binding Athlete12.Position}"
+                    VerticalOptions="FillAndExpand"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete12.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="AtaCentral"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete11.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete11.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete11.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="AtaDireita"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete10.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete10.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete10.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="MEIEsquerda"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete09.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete09.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete09.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="MEICentral"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete08.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete08.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete08.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="MEIDireita"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete07.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete07.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete07.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="LATEsquerdo"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete06.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete06.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete06.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="LATDireio"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete05.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete05.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete05.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="ZAGEsquerdo"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete04.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete04.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete04.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="ZAGDireito"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete03.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete03.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete03.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="GOL"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete02.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete02.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete02.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+                <controls:AthleteClimbView
+                    x:Name="TEC"
+                    AbsoluteLayout.LayoutBounds="{Binding Athlete01.Area}"
+                    HeightAt="50"
+                    Position="{Binding Athlete01.Position}"
+                    WidthAt="50">
+                    <controls:AthleteClimbView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FindAthleteCommand}" CommandParameter="{Binding Athlete01.PositionId}" />
+                    </controls:AthleteClimbView.GestureRecognizers>
+                </controls:AthleteClimbView>
+            </AbsoluteLayout>
+
+        </StackLayout>
+        <StackLayout
+            Grid.Row="1"
+            Padding="0"
+            HorizontalOptions="CenterAndExpand"
+            Orientation="Vertical"
+            VerticalOptions="StartAndExpand">
+            <Label
+                Margin="0"
+                FontAttributes="Bold"
+                FontSize="Small"
+                HorizontalTextAlignment="Center"
+                Text="BANCO DE RESERVAS"
+                TextColor="White"
+                VerticalOptions="FillAndExpand" />
+            <StackLayout
+                Margin="0"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal"
+                Spacing="22"
+                VerticalOptions="StartAndExpand">
+                <controls:AthleteClimbView
+                    x:Name="RGOL"
+                    Margin="0"
+                    Padding="0"
+                    HeightAt="50"
+                    Position="GOL"
+                    VerticalOptions="FillAndExpand"
+                    WidthAt="50" />
+                <controls:AthleteClimbView
+                    x:Name="RZAG"
+                    Margin="0"
+                    Padding="0"
+                    HeightAt="50"
+                    Position="ZAG"
+                    VerticalOptions="FillAndExpand"
+                    WidthAt="50" />
+                <controls:AthleteClimbView
+                    x:Name="RLAT"
+                    Margin="0"
+                    Padding="0"
+                    HeightAt="50"
+                    Position="LAT"
+                    VerticalOptions="FillAndExpand"
+                    WidthAt="50" />
+                <controls:AthleteClimbView
+                    x:Name="RMEI"
+                    Margin="0"
+                    Padding="0"
+                    HeightAt="50"
+                    Position="MEI"
+                    VerticalOptions="FillAndExpand"
+                    WidthAt="50" />
+                <controls:AthleteClimbView
+                    x:Name="RATA"
+                    Margin="0"
+                    Padding="0"
+                    HeightAt="50"
+                    Position="ATA"
+                    VerticalOptions="FillAndExpand"
+                    WidthAt="50" />
+            </StackLayout>
+        </StackLayout>
+
+        <adMob:AdMobView
+            x:Name="LayAdView"
+            Grid.Row="3"
+            HorizontalOptions="FillAndExpand" />
+        <Button
+            Grid.Row="3"
+            Command="{Binding AlterCommand}"
+            IsVisible="false"
+            Text="Alterar" />
+    </Grid>
+</ContentPage>

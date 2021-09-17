@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="CartoPrime.Modules.Popups.Views.GenericMsgAlertView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontesAwesome="clr-namespace:CartoPrime.Resources"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <ContentView Padding="16,0,16,0" BackgroundColor="Transparent">
+        <Frame
+            Margin="16,24,16,24"
+            CornerRadius="10"
+            HasShadow="True"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Center">
+
+            <StackLayout
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                VerticalOptions="Center">
+                <Label
+                    Margin="0,0,0,8"
+                    FontSize="24"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    Style="{StaticResource FASolid}"
+                    Text="{Static fontesAwesome:FontAwesomeSolid.TimesCircle}"
+                    TextColor="{StaticResource TextoEscuro}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FecharCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <FlexLayout Margin="0,0,0,16" JustifyContent="Center">
+                    <Label
+                        x:Name="lblIconeAviso"
+                        CharacterSpacing="10"
+                        FontSize="24"
+                        IsVisible="{Binding IconeAviso}"
+                        Style="{StaticResource FASolid}"
+                        Text="{Static fontesAwesome:FontAwesomeSolid.ExclamationTriangle}"
+                        TextColor="{StaticResource ColorWarning}" />
+                    <Label
+                        x:Name="lblTitulo"
+                        FontSize="24"
+                        Style="{StaticResource FontFamilyUbuntuBold}" />
+                </FlexLayout>
+
+                <Label
+                    x:Name="lblIcone"
+                    Margin="0,8,0,16"
+                    FontSize="64"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="{Binding .}"
+                    Style="{StaticResource FASolid}"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="lblMensagem"
+                    Margin="0,0,0,32"
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource FontFamilyUbuntu}"
+                    TextColor="{StaticResource TextoEscuro}" />
+                <Button
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    Command="{Binding OkCommand}"
+                    CornerRadius="20"
+                    FontFamily="Ubuntu-Bold.ttf#Ubuntu-Bold"
+                    HeightRequest="48"
+                    Text="{Binding TextoBotaoContinuar}"
+                    TextColor="White" />
+                <Button
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource ColorWarning}"
+                    BorderWidth="1"
+                    Command="{Binding CancelarCommand}"
+                    CornerRadius="20"
+                    FontFamily="Ubuntu-Bold.ttf#Ubuntu-Bold"
+                    HeightRequest="48"
+                    IsVisible="{Binding CancelarIsVisible}"
+                    Text="CANCELAR"
+                    TextColor="{StaticResource ColorWarning}" />
+
+            </StackLayout>
+
+
+        </Frame>
+
+    </ContentView>
+</pages:PopupPage>

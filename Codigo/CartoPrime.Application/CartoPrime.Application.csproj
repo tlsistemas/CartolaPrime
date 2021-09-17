@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="FluentValidation" Version="10.2.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="106.11.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CartoPrime.Data.CA\CartoPrime.Data.CA.csproj" />
+    <ProjectReference Include="..\CartoPrime.Data\CartoPrime.Data.csproj" />
+    <ProjectReference Include="..\CartoPrime.Domain\CartoPrime.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TM.Utils">
+      <HintPath>..\Libs\TM.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

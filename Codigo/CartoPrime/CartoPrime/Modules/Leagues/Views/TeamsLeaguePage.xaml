@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CartoPrime.Modules.Leagues.Views.TeamsLeaguePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:adMob="clr-namespace:CartoPrime.Renderers"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:local="clr-namespace:CartoPrime.Converters"
+    xmlns:uiControls="clr-namespace:CartoPrime.Controls"
+    Title="Times"
+    BackgroundColor="{StaticResource NavBar}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BoolToBoldConverter x:Key="BoolToBold" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <!--<uiControls:HeaderView
+            x:Name="header"
+            BackButtonAction="CloseModalForm"
+            BackButtonPressedEvent="header_BackButtonPressedEvent"
+            BackgroundColor="{StaticResource NavBar}"
+            PageTitle="Times" />-->
+        <Grid IsVisible="True" Style="{StaticResource StackLaouytStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="0.3*" />
+                <RowDefinition Height="7.7*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout
+                Grid.Row="0"
+                Orientation="Vertical"
+                Spacing="0">
+                <StackLayout Orientation="Horizontal">
+                    <ffimageloading:CachedImage
+                        x:Name="txtFotoTime"
+                        HeightRequest="50"
+                        Source="{Binding TeamsLeague.liga.url_flamula_png}"
+                        WidthRequest="50" />
+                    <StackLayout HorizontalOptions="StartAndExpand" WidthRequest="250">
+                        <Label
+                            x:Name="txtNomeTime"
+                            FontAttributes="Bold"
+                            Text="{Binding TeamsLeague.liga.nome}"
+                            TextColor="White">
+                            <Label.FontSize>
+                                <OnPlatform
+                                    x:TypeArguments="x:Double"
+                                    Android="14"
+                                    iOS="12" />
+                            </Label.FontSize>
+                        </Label>
+                        <StackLayout
+                            HorizontalOptions="CenterAndExpand"
+                            Orientation="Horizontal"
+                            VerticalOptions="CenterAndExpand">
+                            <Label
+                                x:Name="txtCartolEsque"
+                                Text="{Binding TeamsLeague.liga.descricao}"
+                                TextColor="#989b9e">
+                                <Label.FontSize>
+                                    <OnPlatform
+                                        x:TypeArguments="x:Double"
+                                        Android="12"
+                                        iOS="10" />
+                                </Label.FontSize>
+                            </Label>
+                            <!--<ffimageloading:CachedImage Source="ic_insert.png" VerticalOptions="StartAndExpand"/>-->
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label
+                            x:Name="txtParcial"
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="{Binding TeamsLeague.liga.total_times_liga}"
+                            TextColor="White"
+                            VerticalOptions="EndAndExpand" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="10"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="Times"
+                            TextColor="White"
+                            VerticalOptions="StartAndExpand" />
+
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout
+                Grid.Row="1"
+                HorizontalOptions="EndAndExpand"
+                Orientation="Horizontal">
+                <StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RoundFilterCommand}" />
+                    </StackLayout.GestureRecognizers>
+                    <Label
+                        FontAttributes="{Binding SelectFilterRound, Converter={StaticResource BoolToBold}}"
+                        Text="Rodada"
+                        TextColor="White" />
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChampionshipFilterCommand}" />
+                    </StackLayout.GestureRecognizers>
+                    <Label
+                        FontAttributes="{Binding SelectFilterChampionship, Converter={StaticResource BoolToBold}}"
+                        Text="Campeonato"
+                        TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                <ListView
+                    x:Name="ListTimes"
+                    HasUnevenRows="true"
+                    IsPullToRefreshEnabled="True"
+                    IsRefreshing="{Binding IsRefreshing}"
+                    IsVisible="{Binding AddedTime}"
+                    ItemsSource="{Binding Times}"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    SelectedItem="{Binding TeamSelected}"
+                    Style="{StaticResource ListViewStyle}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout
+                                    BackgroundColor="{Binding time_dono_color}"
+                                    Orientation="Vertical"
+                                    Spacing="0"
+                                    Style="{StaticResource ListViewStackLaouytStyle}">
+                                    <Grid BackgroundColor="#697a82" HeightRequest="5" />
+                                    <StackLayout
+                                        Padding="2,4,4,2"
+                                        BackgroundColor="{Binding time_dono_color}"
+                                        Orientation="Horizontal"
+                                        Style="{StaticResource ListViewStackLaouytStyle}">
+                                        <StackLayout>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="Micro"
+                                                Text="{Binding ranking.rodada}"
+                                                TextColor="White"
+                                                VerticalOptions="Start">
+                                                <Label.FontSize>
+                                                    <OnPlatform
+                                                        x:TypeArguments="x:Double"
+                                                        Android="8"
+                                                        iOS="8" />
+                                                </Label.FontSize>
+                                            </Label>
+                                        </StackLayout>
+                                        <ffimageloading:CachedImage
+                                            HeightRequest="30"
+                                            Source="{Binding url_escudo_png}"
+                                            WidthRequest="30" />
+                                        <StackLayout HorizontalOptions="StartAndExpand" Spacing="1">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                Text="{Binding nome}"
+                                                TextColor="White">
+                                                <Label.FontSize>
+                                                    <OnPlatform
+                                                        x:TypeArguments="x:Double"
+                                                        Android="12"
+                                                        iOS="10" />
+                                                </Label.FontSize>
+                                            </Label>
+                                            <Label Text="{Binding nome_cartola}" TextColor="#697a82">
+                                                <Label.FontSize>
+                                                    <OnPlatform
+                                                        x:TypeArguments="x:Double"
+                                                        Android="10"
+                                                        iOS="8" />
+                                                </Label.FontSize>
+                                            </Label>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="10"
+                                                Text="{Binding patrimonioString}"
+                                                TextColor="#697a82"
+                                                VerticalOptions="CenterAndExpand" />
+                                        </StackLayout>
+                                        <StackLayout
+                                            HorizontalOptions="EndAndExpand"
+                                            Orientation="Horizontal"
+                                            Spacing="15">
+                                            <ffimageloading:CachedImage
+                                                Aspect="AspectFit"
+                                                HorizontalOptions="End"
+                                                Source="{Binding assinanteCaminho}" />
+                                            <StackLayout HorizontalOptions="Start">
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="12"
+                                                    Text="{Binding pontos.rodada_str}"
+                                                    TextColor="White"
+                                                    VerticalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="EndAndExpand">
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="12"
+                                                    Text="{Binding pontos.campeonato_str}"
+                                                    TextColor="White"
+                                                    VerticalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="Micro"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Text="{Binding jogados}"
+                                                TextColor="#697a82"
+                                                VerticalOptions="StartAndExpand">
+                                                <Label.FontSize>
+                                                    <OnPlatform
+                                                        x:TypeArguments="x:Double"
+                                                        Android="12"
+                                                        iOS="10" />
+                                                </Label.FontSize>
+                                            </Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <adMob:AdMobView
+                x:Name="LayAdView"
+                Grid.Row="3"
+                HorizontalOptions="FillAndExpand" />
+        </Grid>
+    </StackLayout>
+</ContentPage>

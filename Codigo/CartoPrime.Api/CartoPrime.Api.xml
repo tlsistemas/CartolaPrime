@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CartoPrime.Api</name>
+    </assembly>
+    <members>
+        <member name="M:CartoPrime.Api.Controllers.BonsDeBicoBController.BonsDeBicoBAsync">
+            <summary>
+            Listar BonsDeBicoB
+            </summary>
+            <response code="200">BonsDeBicoesB.</response>
+            <response code="400">
+            </response>
+        </member>
+        <member name="M:CartoPrime.Api.Controllers.BonsDeBicoController.BonsDeBicoAsync">
+            <summary>
+            Listar BonsDeBico
+            </summary>
+            <response code="200">BonsDeBicoes.</response>
+            <response code="400">
+            </response>
+        </member>
+        <member name="M:CartoPrime.Api.Controllers.BonsDeBicoController.BonsDeBicoAtletasAsync(System.Int32,System.Int32)">
+            <summary>
+            Listar BonsDeBico com Atletas
+            </summary>
+            <response code="200">BonsDeBicoesAtletas.</response>
+            <response code="400">
+            </response>
+        </member>
+        <member name="M:CartoPrime.Api.Controllers.PushController.PushAsync(CartoPrime.Application.Parameters.PushParams)">
+            <summary>
+            Listar Push
+            </summary>
+            <response code="200">Pushes.</response>
+            <response code="400">
+            </response>
+        </member>
+        <member name="M:CartoPrime.Api.Controllers.PushController.Create(CartoPrime.Application.ViewModel.PushRequest)">
+            <summary>
+            Create Push
+            </summary>
+            <response code="200">Pushe criado com sucesso.</response>
+            <response code="400">
+            </response>
+        </member>
+        <member name="M:CartoPrime.Api.Controllers.PushController.Remove(System.String)">
+            <summary>
+            Remover Push
+            </summary>
+            <response code="200">Pushe removida com sucesso.</response>
+            <response code="400">
+            </response>
+        </member>
+        <member name="M:CartoPrime.Api.Controllers.TokenController.Token(CartoPrime.Application.ViewModel.UserTokenRequest)">
+            <summary>
+            Generate Access Token
+            </summary>
+            <response code="200">Retorna token do usuário válido por 2 Horas.</response>
+            <response code="422">
+            Retorna os erros encontrados ao obter o token.
+            </response>
+        </member>
+    </members>
+</doc>

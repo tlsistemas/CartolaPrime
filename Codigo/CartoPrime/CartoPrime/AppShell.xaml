@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CartoPrime.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Home="clr-namespace:CartoPrime.Modules.Home.Views"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Title="CartoPrime">
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#2a2f32" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#2a2f32" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarTitleColor" Value="White" />
+            </Style>
+            <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
+            <Style BasedOn="{StaticResource BaseStyle}" TargetType="FlyoutItem" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+
+
+
+    <Shell.FlyoutBackdrop>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Offset="0.1" Color="#263238" />
+            <GradientStop Offset="0.6" Color="#455a64" />
+            <GradientStop Offset="1.0" Color="#2a2f32" />
+        </LinearGradientBrush>
+    </Shell.FlyoutBackdrop>
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid>
+                <StackLayout BackgroundColor="#263238">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DeleteTeamCommand}" />
+                    </StackLayout.GestureRecognizers>
+                    <ffimageloading:CachedImage
+                        x:Name="imageTeam"
+                        Margin="10"
+                        Aspect="AspectFit"
+                        HeightRequest="125.5"
+                        Source="{Binding EscudoTeam}"
+                        WidthRequest="218.5" />
+                    <Label
+                        x:Name="txtHome1"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalOptions="Fill"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding NameTeam}"
+                        TextColor="White" />
+                    <Label
+                        x:Name="txtStatusMerc"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalOptions="Fill"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding StatusMarket}"
+                        TextColor="White" />
+                </StackLayout>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Title="Home" Icon="ic_home_black.png">
+        <Tab Title="Home" Icon="ic_home_estadio.png">
+            <ShellContent ContentTemplate="{DataTemplate Home:HomeView}" />
+        </Tab>
+        <!--<Tab Title="Home" Icon="ic_home_estadio.png">
+            <ShellContent ContentTemplate="{DataTemplate Home:HomeCAView}" />
+        </Tab>-->
+        <!--<Tab Title="Cartola Prime FC" Icon="ic_raio.png">
+            <ShellContent ContentTemplate="{DataTemplate Home:HomeCFView}" />
+        </Tab>-->
+    </FlyoutItem>
+
+    <!--<MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="TeamsPage"
+        IconImageSource="ic_home_estadio.png"
+        Text="Times" />-->
+    <MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="LeaguesPage"
+        IconImageSource="liga.png"
+        Text="Ligas" />
+    <MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="ScoredPage"
+        IconImageSource="pontuados.png"
+        Text="Pontuação" />
+    <MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="ScalePage"
+        IconImageSource="escalar.jpg"
+        Text="Escalar" />
+    <MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="RoundGamesPage"
+        IconImageSource="jogos_rodada.png"
+        Text="Jodas da Rodada" />
+    <MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="ClassificationBRAPage"
+        IconImageSource="brasil_serie_a.png"
+        Text="Classificação BRA" />
+    <MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="MostClimbedPage"
+        IconImageSource="mais_escalados.png"
+        Text="Mais Escalados" />
+    <!--<MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="NewsPage"
+        IconImageSource="icon_noticias.png"
+        Text="Notícias" />-->
+    <MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="DicasExView"
+        IconImageSource="ic_tips.png"
+        Text="Dicas Exclusivas" />
+    <!--<MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="AdsPage"
+        IconImageSource="ic_tips.png"
+        Text="Vamos Mitar?" />-->
+    <MenuItem
+        Command="{Binding NavigateCommand}"
+        CommandParameter="ContactsPage"
+        IconImageSource="contato.png"
+        Text="Sobre" />
+    <MenuItem
+        Command="{Binding ExitCommand}"
+        CommandParameter="ExitApp"
+        IconImageSource="door_exit.png"
+        Text="Sair" />
+
+</Shell>

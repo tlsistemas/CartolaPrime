@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="CartoPrime.Controls.HeaderView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.75*" />
+            <ColumnDefinition Width="8.25*" />
+        </Grid.ColumnDefinitions>
+        <Button
+            x:Name="backButton"
+            Grid.Row="0"
+            Grid.Column="0"
+            Padding="0,7,0,0"
+            BackgroundColor="Transparent"
+            Clicked="BackButton_Clicked"
+            HorizontalOptions="StartAndExpand"
+            ImageSource="ic_back.png"
+            VerticalOptions="EndAndExpand" />
+
+        <StackLayout
+            Grid.Row="0"
+            Grid.Column="1"
+            VerticalOptions="EndAndExpand">
+            <Label
+                x:Name="headerTitleText"
+                Padding="0,43"
+                FontAttributes="Bold"
+                FontSize="20"
+                TextColor="White"
+                VerticalOptions="EndAndExpand"
+                VerticalTextAlignment="End" />
+        </StackLayout>
+    </Grid>
+</ContentView>
